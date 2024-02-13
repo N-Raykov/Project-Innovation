@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
-
+using UnityEngine.InputSystem;
 
 public class PlayerNetwork : NetworkBehaviour{
 
 
     [SerializeField] Transform shootPoint;
 
+    [SerializeField] InputActionReference moveActionToUse;
     [SerializeField] float speed;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float cooldown;
@@ -31,21 +32,13 @@ public class PlayerNetwork : NetworkBehaviour{
 
 
     private void Move(){
-
         rb.velocity = Vector3.zero;
         velocity = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.W))
-            velocity.z += 1;
-        if (Input.GetKey(KeyCode.S))
-            velocity.z -= 1;
-        if (Input.GetKey(KeyCode.D))
-            velocity.x += 1;
-        if (Input.GetKey(KeyCode.A))
-            velocity.x -= 1;
+        velocity = new Vector3(moveActionToUse.action.ReadValue<Vector2>().x, 0, moveActionToUse.action.ReadValue<Vector2>().y);
 
         rb.AddForce(velocity * speed, ForceMode.VelocityChange);
-
+        Debug.Log(velocity + "; " + NetworkObjectId);
     }
 
     private void Shoot() {
