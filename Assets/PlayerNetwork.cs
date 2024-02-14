@@ -25,6 +25,8 @@ public class PlayerNetwork : NetworkBehaviour{
     
 
     private void FixedUpdate(){
+        if (!IsOwner)
+            return;
         Move();
         Shoot();
     }
@@ -50,8 +52,6 @@ public class PlayerNetwork : NetworkBehaviour{
 
     private void Shoot() {
         if (Input.GetKey(KeyCode.Space) && Time.time - lastShotTime > cooldown) {
-            if (!IsOwner)
-                return;
             ShootBulletServerRpc();
             lastShotTime = Time.time;
         }
