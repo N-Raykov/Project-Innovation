@@ -9,8 +9,14 @@ using Unity.Services.Qos;
 using TMPro;
 using UnityEngine.UI;
 
-public class TestLobby : MonoBehaviour{
+public class PlayerData{
+    public Player player;
+    public GameObject playerDisplay;
+}
 
+
+
+public class TestLobby : MonoBehaviour{
 
     [Header("NameSelectionScreen")]
     [SerializeField] GameObject loginPage;
@@ -37,7 +43,9 @@ public class TestLobby : MonoBehaviour{
     [SerializeField] RectTransform sizeComparison;
     string lobbyCode;
     Coroutine lobbyPlayerUpdateCoroutine;
-    List<GameObject> playerList = new List<GameObject>();
+    List<GameObject> playerDisplayList = new List<GameObject>();
+    List<Player> playersInLobby = new List<Player>();
+    List<PlayerData> playerData = new List<PlayerData>();
     [SerializeField] TextMeshProUGUI joinedLobbyNameText;
     [SerializeField] TextMeshProUGUI joinedLobbyPlayersText;
     [SerializeField] TextMeshProUGUI joinedLobbyCode;
@@ -155,7 +163,7 @@ public class TestLobby : MonoBehaviour{
 
             QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
 
-            Lobby lobby = await Lobbies.Instance.JoinLobbyByCodeAsync(pLobbyCode);
+            Lobby lobby = await Lobbies.Instance.JoinLobbyByCodeAsync(pLobbyCode,joinLobbyByCodeOptions);
             joinedLobby = lobby;
 
             
@@ -169,18 +177,21 @@ public class TestLobby : MonoBehaviour{
 
     public void PrintPlayers(Lobby pLobby) {
         Debug.Log("Players in Lobby " + pLobby.Name+" "+pLobby.Data["Character"].Value);
-        foreach (Player player in pLobby.Players) {
-            Debug.Log(player.Id + " " + player.Data["playerName"].Value);//<------------------------------------------
-                                                                         // player name does not exists and causes an error?
+        Debug.Log(pLobby.Players.Count);
 
+        foreach (Player player in pLobby.Players) {
+            //Debug.Log(player.Id);
+            //Debug.Log(player.Data);//<------------------data is null
+            //Debug.Log(player.Id + " " + player.Data["playerName"].Value);//<------------------------------------------
+                                                                         // player name does not exists and causes an error?
+                                                                         //host has name; player that joins doesnt
         }
     }
 
     private Player GetPlayer(){
         return new Player{
             Data = new Dictionary<string, PlayerDataObject>{
-                { "playerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
-
+                { "playerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, playerName) }
             }
         };
     }
@@ -228,6 +239,7 @@ public class TestLobby : MonoBehaviour{
         try{
             await LobbyService.Instance.RemovePlayerAsync(joinedLobby.Id, AuthenticationService.Instance.PlayerId);
             joinedLobby = null;//might need to delete ----------------------------------------------------------------
+            hostLobby = null;  //might need to delete ----------------------------------------------------------------
         } catch (LobbyServiceException e) {
             Debug.Log(e);
         }
@@ -301,12 +313,17 @@ public class TestLobby : MonoBehaviour{
         lobbyScreen.SetActive(false);
     }
 
-    void DisplayLobbyPlayers() {
-        foreach (GameObject g in playerList) {
+    async void DisplayLobbyPlayers() {
+        foreach (GameObject g in playerDisplayList){
             Destroy(g);
         }
 
-        Lobbies.Instance.GetLobbyAsync(joinedLobby.Id);//WHY NO WORK??????????
+        joinedLobby = await Lobbies.Instance.GetLobbyAsync(joinedLobby.Id);
+
+        //foreach (PlayerData p in playerData){
+        //    foreach (Player pl in joinedLobby.Players)
+        //        Debug.Log(p.player.Id == pl.Id);
+        //}
 
         joinedLobbyNameText.text = joinedLobby.Name;
         joinedLobbyPlayersText.text = string.Format("{0}/{1}",joinedLobby.Players.Count,joinedLobby.MaxPlayers);
@@ -314,10 +331,10 @@ public class TestLobby : MonoBehaviour{
 
         foreach (Player player in joinedLobby.Players){
             GameObject g = Instantiate(playerDisplayPrefab, playerListParent.transform);
-            playerList.Add(g);
+            playerDisplayList.Add(g);
             RectTransform rectTransformPrefab = g.GetComponent<RectTransform>();
             rectTransformPrefab.sizeDelta = new Vector2(sizeComparison.rect.width, sizeComparison.rect.height/5);
-            //g.GetComponent<PlayerDisplayObjectScript>().UpdatePlayerName(player.Data["playerName"].Value);
+            g.GetComponent<PlayerDisplayObjectScript>().UpdatePlayerName(player.Data["playerName"].Value);
         }
 
     }
@@ -337,5 +354,9 @@ public class TestLobby : MonoBehaviour{
 
     public void JoinLobbyByCodeButton() {
         JoinLobbyByCode(lobbyCode);
+    }
+
+    private void OnApplicationQuit(){
+        LeaveLobby();
     }
 }
