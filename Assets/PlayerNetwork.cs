@@ -18,12 +18,14 @@ public class PlayerNetwork : NetworkBehaviour{
     Rigidbody rb;
     float lastShotTime = -1000000;
 
+    Quaternion refRotation;
+    Quaternion currRotation;
+
     private void Awake(){
         rb = GetComponent<Rigidbody>();
         Input.gyro.enabled = true;
+        refRotation = GetDeviceRotation();
     }
-
-    
 
     private void FixedUpdate(){
         if (!IsOwner)
@@ -31,7 +33,6 @@ public class PlayerNetwork : NetworkBehaviour{
         Move();
         Shoot();
     }
-
 
     private void Move(){
         rb.velocity = Vector3.zero;
@@ -41,17 +42,43 @@ public class PlayerNetwork : NetworkBehaviour{
 
         rb.AddForce(velocity * speed, ForceMode.VelocityChange);
 
+        currRotation = GetDeviceRotation();
+
         Rotation();
     }
 
     void Rotation()
     {
-        float gravityOutputMultiplier = -50;
-        Vector3 currentRot = transform.eulerAngles;
-        transform.eulerAngles = new Vector3(currentRot.x, currentRot.y, Input.gyro.gravity.x * gravityOutputMultiplier);
-        Debug.Log(Input.gyro.gravity.x);
-        Debug.Log(Input.gyro.gravity.y);
-        Debug.Log(Input.gyro.attitude);
+        transform.eulerAngles = new Vector3(GetPitchAngle(refRotation, currRotation), GetYallAngle(Quaternion.identity, currRotation), GetRollAngle(refRotation, currRotation));
+    }
+
+    private float GetRollAngle(Quaternion refRotation, Quaternion currentRotation)
+    {
+        Quaternion rotFromRefRot = Quaternion.Inverse(Quaternion.FromToRotation(refRotation * Vector3.forward, currentRotation * Vector3.forward));
+
+        Quaternion rotationFixedZ = rotFromRefRot * currentRotation;
+        return rotationFixedZ.eulerAngles.z;
+    }
+
+    private float GetPitchAngle(Quaternion refRotation, Quaternion currentRotation)
+    {
+        Quaternion rotFromRefRot = Quaternion.Inverse(Quaternion.FromToRotation(refRotation * Vector3.right, currentRotation * Vector3.right));
+
+        Quaternion rotationFixedX = rotFromRefRot * currentRotation;
+        return rotationFixedX.eulerAngles.x;
+    }
+
+    private float GetYallAngle(Quaternion refRotation, Quaternion currentRotation)
+    {
+        Quaternion rotFromRefRot = Quaternion.Inverse(Quaternion.FromToRotation(refRotation * Vector3.up, currentRotation * Vector3.up));
+
+        Quaternion rotationFixedY = rotFromRefRot * currentRotation;
+        return rotationFixedY.eulerAngles.y;
+    }
+
+    private Quaternion GetDeviceRotation()
+    {
+        return new Quaternion(0.5f, 0.5f, -0.5f, 0.5f) * Input.gyro.attitude * new Quaternion(0, 0, 1, 0);
     }
 
     private void Shoot() {
@@ -59,7 +86,6 @@ public class PlayerNetwork : NetworkBehaviour{
             ShootBulletServerRpc();
             lastShotTime = Time.time;
         }
-
     }
 
     [ServerRpc]
