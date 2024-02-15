@@ -14,13 +14,13 @@ public class PlayerNetwork : NetworkBehaviour{
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float cooldown;
 
-
     Vector3 velocity;
     Rigidbody rb;
     float lastShotTime = -1000000;
 
     private void Awake(){
         rb = GetComponent<Rigidbody>();
+        Input.gyro.enabled = true;
     }
 
     
@@ -38,7 +38,18 @@ public class PlayerNetwork : NetworkBehaviour{
         velocity = new Vector3(moveActionToUse.action.ReadValue<Vector2>().x, 0, moveActionToUse.action.ReadValue<Vector2>().y);
 
         rb.AddForce(velocity * speed, ForceMode.VelocityChange);
-        Debug.Log(velocity + "; " + NetworkObjectId);
+
+        Rotation();
+    }
+
+    void Rotation()
+    {
+        float gravityOutputMultiplier = -50;
+        Vector3 currentRot = transform.eulerAngles;
+        transform.eulerAngles = new Vector3(currentRot.x, currentRot.y, Input.gyro.gravity.x * gravityOutputMultiplier);
+        Debug.Log(Input.gyro.gravity.x);
+        Debug.Log(Input.gyro.gravity.y);
+        Debug.Log(Input.gyro.attitude);
     }
 
     private void Shoot() {
