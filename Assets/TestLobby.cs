@@ -314,28 +314,69 @@ public class TestLobby : MonoBehaviour{
     }
 
     async void DisplayLobbyPlayers() {
-        foreach (GameObject g in playerDisplayList){
-            Destroy(g);
-        }
+        //foreach (GameObject g in playerDisplayList){
+        //    Destroy(g);
+        //}
 
         joinedLobby = await Lobbies.Instance.GetLobbyAsync(joinedLobby.Id);
 
-        //foreach (PlayerData p in playerData){
-        //    foreach (Player pl in joinedLobby.Players)
-        //        Debug.Log(p.player.Id == pl.Id);
-        //}
+
+        foreach (Player pl in joinedLobby.Players) {
+            bool wasFound = false;
+
+            foreach (PlayerData p in playerData)
+                if (p.player.Id == pl.Id) {
+                    wasFound = true;
+                    break;
+                }
+
+            if (!wasFound)
+                InstantiateLobbyPlayerDisplay(pl);
+
+        }
+
+
+        foreach (PlayerData p in playerData) {
+            bool wasFound = false;
+
+
+            foreach (Player pl in joinedLobby.Players) 
+                if (p.player.Id == pl.Id) {
+                    wasFound = true;
+                    break;
+                }
+
+            if (!wasFound) {
+                Destroy(p.playerDisplay);
+                playerData.Remove(p);
+            }
+
+        }
+
 
         joinedLobbyNameText.text = joinedLobby.Name;
         joinedLobbyPlayersText.text = string.Format("{0}/{1}",joinedLobby.Players.Count,joinedLobby.MaxPlayers);
         joinedLobbyCode.text = joinedLobby.LobbyCode;
 
-        foreach (Player player in joinedLobby.Players){
-            GameObject g = Instantiate(playerDisplayPrefab, playerListParent.transform);
-            playerDisplayList.Add(g);
-            RectTransform rectTransformPrefab = g.GetComponent<RectTransform>();
-            rectTransformPrefab.sizeDelta = new Vector2(sizeComparison.rect.width, sizeComparison.rect.height/5);
-            g.GetComponent<PlayerDisplayObjectScript>().UpdatePlayerName(player.Data["playerName"].Value);
-        }
+        //foreach (Player player in joinedLobby.Players){
+        //    GameObject g = Instantiate(playerDisplayPrefab, playerListParent.transform);
+        //    playerDisplayList.Add(g);
+        //    RectTransform rectTransformPrefab = g.GetComponent<RectTransform>();
+        //    rectTransformPrefab.sizeDelta = new Vector2(sizeComparison.rect.width, sizeComparison.rect.height/5);
+        //    g.GetComponent<PlayerDisplayObjectScript>().UpdatePlayerName(player.Data["playerName"].Value);
+        //}
+
+    }
+
+    void InstantiateLobbyPlayerDisplay(Player player) {
+
+        PlayerData pd = new PlayerData();
+        pd.player = player;
+        playerData.Add(pd);
+        pd.playerDisplay =  Instantiate(playerDisplayPrefab, playerListParent.transform);
+        RectTransform rectTransformPrefab = pd.playerDisplay.GetComponent<RectTransform>();
+        rectTransformPrefab.sizeDelta = new Vector2(sizeComparison.rect.width, sizeComparison.rect.height / 5);
+        pd.playerDisplay.GetComponent<PlayerDisplayObjectScript>().UpdatePlayerName(player.Data["playerName"].Value);
 
     }
 
