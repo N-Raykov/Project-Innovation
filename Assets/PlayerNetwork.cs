@@ -18,35 +18,23 @@ public class PlayerNetwork : NetworkBehaviour{
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float cooldown;
 
-    [Header("Side Rotation")]
-    [SerializeField] float minSideRotationValue;
-    [SerializeField] float maxSideRotationValue;
-
-    [Header("Forward Rotation")]
-
-    [SerializeField] float minForwardRotationValue;
-    [SerializeField] float maxForwardRotationValue;
-
     [Header("Side Tilt Values")]
 
-    [SerializeField] float minSideTiltValue;
-    [SerializeField] float maxSideTiltValue;
+    [SerializeField] AnimationCurve sideTiltCurve;
+    [SerializeField] float zRotationMultiplier;
 
-    [Header("Forward Tilt Values")]
+    [Header("Backward Tilt Values")]//rotating towards your feet
 
-    [SerializeField] float minForwardTiltValue;
-    [SerializeField] float maxForwardTiltValue;
-
-    [Header("Backward Tilt Values")]
-
-    [SerializeField] float minBackwardTiltValue;
-    [SerializeField] float maxBackwardTiltValue;
+    [SerializeField] AnimationCurve backwardTiltCurve;
+    [SerializeField] float modelTiltMultiplier;
+    [SerializeField] float maxModelTiltValue;
 
     [Header("Movement")]
 
     [SerializeField] AnimationCurve accelerationCurve;
 
     [SerializeField] float maxSpeed;//perSec
+    [SerializeField] float trueMaxSpeed;
     public float currentSpeed=0;
 
     [Header("Camera Controls")]
@@ -57,14 +45,8 @@ public class PlayerNetwork : NetworkBehaviour{
     [SerializeField] Transform modelHolder;
     Vector3 modelHolderRotation=Vector3.zero;
 
-
-
     Rigidbody rb;
     float lastShotTime = -1000000;
-
-    Quaternion refRotation;
-    Quaternion currRotation;
-    Quaternion lastFrameRotation;
 
     Vector3 rotation;
 
@@ -77,9 +59,6 @@ public class PlayerNetwork : NetworkBehaviour{
     }
 
     private void FixedUpdate(){
-
-        //Debug.Log(Input.gyro.rotationRateUnbiased + " " + Input.gyro.rotationRate);
-
         if (!IsOwner)
             return;
         
@@ -95,9 +74,11 @@ public class PlayerNetwork : NetworkBehaviour{
     private void Move(){
         rb.velocity = Vector3.zero;
 
-        currentSpeed = Mathf.Min(currentSpeed + accelerationCurve.Evaluate(currentSpeed) * Time.fixedDeltaTime, maxSpeed);
+        //currentSpeed = Mathf.Min(currentSpeed + accelerationCurve.Evaluate(currentSpeed) * Time.fixedDeltaTime, maxSpeed);
 
-        OnSpeedChange?.Invoke(currentSpeed,maxSpeed,0);
+        currentSpeed += accelerationCurve.Evaluate(currentSpeed) * Time.fixedDeltaTime;
+
+        OnSpeedChange?.Invoke(currentSpeed,maxSpeed,trueMaxSpeed);
 
         rb.AddForce(transform.forward*currentSpeed,ForceMode.VelocityChange);
 
@@ -106,37 +87,21 @@ public class PlayerNetwork : NetworkBehaviour{
 
     void FinalRotation(){
 
-        //Debug.Log(Input.acceleration);
-
         transform.localRotation = Quaternion.identity;
         modelHolder.localRotation = Quaternion.identity;
 
-        if (Input.acceleration.z > minBackwardTiltValue){
-            float accelerationZ = Mathf.Clamp(Mathf.Abs(Input.acceleration.z), minBackwardTiltValue, maxBackwardTiltValue);
-            float mappedZValue = Map(accelerationZ, minBackwardTiltValue, maxBackwardTiltValue, minForwardRotationValue, maxForwardRotationValue);
-            rotation += new Vector3(-Mathf.Sign(Input.acceleration.z) * mappedZValue, 0, 0) * Time.deltaTime;
 
-            modelHolderRotation += new Vector3(-0.25f, 0, 0);
-        }
 
-        if (Input.acceleration.z < minForwardTiltValue){
-            float accelerationZ = Mathf.Clamp(Mathf.Abs(Input.acceleration.z), minForwardTiltValue, maxForwardTiltValue);
-            float mappedZValue = Map(accelerationZ, minForwardTiltValue, maxForwardTiltValue, minForwardRotationValue, maxForwardRotationValue);
-            rotation += new Vector3(-Mathf.Sign(Input.acceleration.z) * mappedZValue, 0, 0) * Time.deltaTime;
+        rotation += new Vector3(-backwardTiltCurve.Evaluate(Input.acceleration.z), 0, 0)*Time.deltaTime;
 
-            modelHolderRotation += new Vector3(0.25f, 0, 0);
+        modelHolderRotation += new Vector3(-modelTiltMultiplier * backwardTiltCurve.Evaluate(Input.acceleration.z), 0, 0) * Time.deltaTime;
 
-        }
+        rotation += new Vector3(0, sideTiltCurve.Evaluate(Input.acceleration.x), -zRotationMultiplier * sideTiltCurve.Evaluate(Input.acceleration.x)) * Time.deltaTime;
 
-        if (Mathf.Abs(Input.acceleration.x) > minSideTiltValue){
-            float accelerationX = Mathf.Clamp(Mathf.Abs(Input.acceleration.x), minSideTiltValue, maxSideTiltValue);
-            float mappedXValue = Map(accelerationX, minSideTiltValue, maxSideTiltValue, minSideRotationValue, maxSideRotationValue);
-            rotation += new Vector3(0, Mathf.Sign(Input.acceleration.x) * mappedXValue, -2.5f * Mathf.Sign(Input.acceleration.x) * mappedXValue) * Time.deltaTime;
 
-        }
 
-        modelHolderRotation.x = Mathf.Max(-25, modelHolderRotation.x);
-        modelHolderRotation.x = Mathf.Min(25, modelHolderRotation.x);
+        modelHolderRotation.x = Mathf.Max(-maxModelTiltValue, modelHolderRotation.x);
+        modelHolderRotation.x = Mathf.Min(maxModelTiltValue, modelHolderRotation.x);
 
         rotation.z = Mathf.Lerp(rotation.z, 0, Time.deltaTime);
         modelHolderRotation.x = Mathf.Lerp(modelHolderRotation.x, 0, Time.deltaTime);
@@ -165,9 +130,8 @@ public class PlayerNetwork : NetworkBehaviour{
         return b1 + (s - a1) * (b2 - b1) / (a2 - a1);
     }
 
-    //float MapNonLinear(float value, float minRange1, float maxRange1, float minRange2, float maxRange2) { 
-    
-    
-    //}
+    public void AddSpeed(float pSpeed) {
+        currentSpeed += pSpeed;
+    }
 
 }

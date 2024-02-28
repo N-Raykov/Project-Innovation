@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedBoostRing : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class SpeedBoostRing : MonoBehaviour{
 
-    // Update is called once per frame
-    void Update()
-    {
+    [SerializeField] float speedIncrease; 
+
+    private void OnTriggerEnter(Collider other){
+        Debug.Log(other.name);
+
+        PlayerNetwork player = other.transform.root.gameObject.GetComponent<PlayerNetwork>();
         
+        if (player != null) {
+            player.AddSpeed(speedIncrease);
+        }
+
     }
 }
