@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.InputSystem;
+using Cinemachine;
+using System;
 
 public class PlayerNetwork : NetworkBehaviour{
 
+
+    public Action<float,float,float> OnSpeedChange;
 
     [SerializeField] Transform shootPoint;
 
@@ -14,21 +18,47 @@ public class PlayerNetwork : NetworkBehaviour{
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float cooldown;
 
-    [Header("Rotation")]
-    [SerializeField] float minRotationValue;
-    [SerializeField] float maxRotationValue;
+    [Header("Side Rotation")]
+    [SerializeField] float minSideRotationValue;
+    [SerializeField] float maxSideRotationValue;
 
-    [SerializeField] float minGyroValue;
-    [SerializeField] float maxGyroValue;
+    [Header("Forward Rotation")]
+
+    [SerializeField] float minForwardRotationValue;
+    [SerializeField] float maxForwardRotationValue;
+
+    [Header("Side Tilt Values")]
+
+    [SerializeField] float minSideTiltValue;
+    [SerializeField] float maxSideTiltValue;
+
+    [Header("Forward Tilt Values")]
+
+    [SerializeField] float minForwardTiltValue;
+    [SerializeField] float maxForwardTiltValue;
+
+    [Header("Backward Tilt Values")]
+
+    [SerializeField] float minBackwardTiltValue;
+    [SerializeField] float maxBackwardTiltValue;
 
     [Header("Movement")]
-    [SerializeField] float acceleration;//perSec
+
+    [SerializeField] AnimationCurve accelerationCurve;
+
     [SerializeField] float maxSpeed;//perSec
     public float currentSpeed=0;
 
+    [Header("Camera Controls")]
+
+    [SerializeField] CinemachineVirtualCamera mainCameraController;
+    [SerializeField] Camera mainCamera;
+
+    [SerializeField] Transform modelHolder;
+    Vector3 modelHolderRotation=Vector3.zero;
 
 
-    Vector3 velocity;
+
     Rigidbody rb;
     float lastShotTime = -1000000;
 
@@ -41,8 +71,9 @@ public class PlayerNetwork : NetworkBehaviour{
     private void Awake(){
         rb = GetComponent<Rigidbody>();
         Input.gyro.enabled = true;
-        refRotation = GetDeviceRotation();
-        
+
+        mainCameraController.transform.parent = null;
+        mainCamera.transform.parent = null;
     }
 
     private void FixedUpdate(){
@@ -54,103 +85,65 @@ public class PlayerNetwork : NetworkBehaviour{
         
         Move();
         Shoot();
-
+        
     }
 
     private void Update(){
-
         FinalRotation();
-
-        //Debug.Log( Input.gyro.attitude.eulerAngles);
-        
     }
 
     private void Move(){
         rb.velocity = Vector3.zero;
-        velocity = Vector3.zero;
 
-        currentSpeed = Mathf.Min(currentSpeed + acceleration*Time.fixedDeltaTime, maxSpeed);
+        currentSpeed = Mathf.Min(currentSpeed + accelerationCurve.Evaluate(currentSpeed) * Time.fixedDeltaTime, maxSpeed);
+
+        OnSpeedChange?.Invoke(currentSpeed,maxSpeed,0);
 
         rb.AddForce(transform.forward*currentSpeed,ForceMode.VelocityChange);
 
-        //velocity = new Vector3(moveActionToUse.action.ReadValue<Vector2>().x, 0, moveActionToUse.action.ReadValue<Vector2>().y);
-
-        //rb.AddForce(velocity * speed, ForceMode.VelocityChange);
-
-        //currRotation = GetDeviceRotation();
-
-        //Rotation();
     }
 
 
     void FinalRotation(){
 
-        Debug.Log(Input.acceleration);
+        //Debug.Log(Input.acceleration);
 
         transform.localRotation = Quaternion.identity;
+        modelHolder.localRotation = Quaternion.identity;
 
+        if (Input.acceleration.z > minBackwardTiltValue){
+            float accelerationZ = Mathf.Clamp(Mathf.Abs(Input.acceleration.z), minBackwardTiltValue, maxBackwardTiltValue);
+            float mappedZValue = Map(accelerationZ, minBackwardTiltValue, maxBackwardTiltValue, minForwardRotationValue, maxForwardRotationValue);
+            rotation += new Vector3(-Mathf.Sign(Input.acceleration.z) * mappedZValue, 0, 0) * Time.deltaTime;
 
-        if (Mathf.Abs(Input.acceleration.z) > minGyroValue){
-            float accelerationZ = Mathf.Clamp(Mathf.Abs(Input.acceleration.z), minGyroValue, maxGyroValue);
-            float mappedZValue = Map(accelerationZ, minGyroValue, maxGyroValue, minRotationValue, maxRotationValue);
-            rotation += new Vector3(-Mathf.Sign(Input.acceleration.z) * mappedZValue, 0, 0)*Time.deltaTime;
-
-            //transform.Rotate(new Vector3(-Mathf.Sign(Input.acceleration.z) * mappedZValue, 0, 0),Space.World);
-            //transform.Rotate(new Vector3(1, 0, 0), -Mathf.Sign(Input.acceleration.z));
+            modelHolderRotation += new Vector3(-0.25f, 0, 0);
         }
 
+        if (Input.acceleration.z < minForwardTiltValue){
+            float accelerationZ = Mathf.Clamp(Mathf.Abs(Input.acceleration.z), minForwardTiltValue, maxForwardTiltValue);
+            float mappedZValue = Map(accelerationZ, minForwardTiltValue, maxForwardTiltValue, minForwardRotationValue, maxForwardRotationValue);
+            rotation += new Vector3(-Mathf.Sign(Input.acceleration.z) * mappedZValue, 0, 0) * Time.deltaTime;
 
-        if (Mathf.Abs(Input.acceleration.x) > minGyroValue)
-        {
-            float accelerationX = Mathf.Clamp(Mathf.Abs(Input.acceleration.x), minGyroValue, maxGyroValue);
-            float mappedXValue = Map(accelerationX, minGyroValue, maxGyroValue, minRotationValue, maxRotationValue);
-            rotation += new Vector3(0, Mathf.Sign(Input.acceleration.x) * mappedXValue, 0)*Time.deltaTime;
-
-            //transform.Rotate(new Vector3(0, Mathf.Sign(Input.acceleration.x) * mappedXValue, 0), Space.World);
-            //transform.Rotate(new Vector3(0, 1, 0), Mathf.Sign(Input.acceleration.x) * mappedXValue);
+            modelHolderRotation += new Vector3(0.25f, 0, 0);
 
         }
 
-        
+        if (Mathf.Abs(Input.acceleration.x) > minSideTiltValue){
+            float accelerationX = Mathf.Clamp(Mathf.Abs(Input.acceleration.x), minSideTiltValue, maxSideTiltValue);
+            float mappedXValue = Map(accelerationX, minSideTiltValue, maxSideTiltValue, minSideRotationValue, maxSideRotationValue);
+            rotation += new Vector3(0, Mathf.Sign(Input.acceleration.x) * mappedXValue, -2.5f * Mathf.Sign(Input.acceleration.x) * mappedXValue) * Time.deltaTime;
+
+        }
+
+        modelHolderRotation.x = Mathf.Max(-25, modelHolderRotation.x);
+        modelHolderRotation.x = Mathf.Min(25, modelHolderRotation.x);
+
+        rotation.z = Mathf.Lerp(rotation.z, 0, Time.deltaTime);
+        modelHolderRotation.x = Mathf.Lerp(modelHolderRotation.x, 0, Time.deltaTime);
 
         transform.Rotate(rotation);
+        modelHolder.Rotate(modelHolderRotation);
 
-    }
-
-    void Rotation()
-    {
-        transform.eulerAngles = new Vector3(GetPitchAngle(refRotation, currRotation), GetYallAngle(Quaternion.identity, currRotation), GetRollAngle(refRotation, currRotation));
-    }
-
-    private float GetRollAngle(Quaternion refRotation, Quaternion currentRotation)
-    {
-        Quaternion rotFromRefRot = Quaternion.Inverse(Quaternion.FromToRotation(refRotation * Vector3.forward, currentRotation * Vector3.forward));
-
-        Quaternion rotationFixedZ = rotFromRefRot * currentRotation;
-        return rotationFixedZ.eulerAngles.z;
-    }
-
-    private float GetPitchAngle(Quaternion refRotation, Quaternion currentRotation)
-    {
-        Quaternion rotFromRefRot = Quaternion.Inverse(Quaternion.FromToRotation(refRotation * Vector3.right, currentRotation * Vector3.right));
-
-        Quaternion rotationFixedX = rotFromRefRot * currentRotation;
-        return rotationFixedX.eulerAngles.x;
-    }
-
-    private float GetYallAngle(Quaternion refRotation, Quaternion currentRotation)
-    {
-        Quaternion rotFromRefRot = Quaternion.Inverse(Quaternion.FromToRotation(refRotation * Vector3.up, currentRotation * Vector3.up));
-
-        Quaternion rotationFixedY = rotFromRefRot * currentRotation;
-        return rotationFixedY.eulerAngles.y;
-    }
-
-    private Quaternion GetDeviceRotation()
-    {
-        return new Quaternion(1f, 1f, -1f, 1f) * Input.gyro.attitude;
-        //return new Quaternion(0.5f, 0.5f, -0.5f, 0.5f) * Input.gyro.attitude;
-        //return new Quaternion(0.5f, 0.5f, -0.5f, 0.5f) * Input.gyro.attitude * new Quaternion(0, 0, 1, 0);
     }
 
     private void Shoot() {

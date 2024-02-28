@@ -257,6 +257,33 @@ public class TestLobby : MonoBehaviour{
         }
     }
 
+
+    public async void RefreshLobbyList() {
+
+        try {
+            QueryLobbiesOptions queryLobbiesOptions = new QueryLobbiesOptions{
+                Count = 25,
+                Filters = new List<QueryFilter> {
+                    new QueryFilter(QueryFilter.FieldOptions.AvailableSlots, "0", QueryFilter.OpOptions.GT),
+                },
+                Order = new List<QueryOrder> {
+                    new QueryOrder(false,QueryOrder.FieldOptions.Created)
+                }
+
+            };
+
+            QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync(queryLobbiesOptions);
+
+            Debug.Log("Lobbies found:" + queryResponse.Results.Count);
+
+
+
+        } catch (LobbyServiceException e) {
+            Debug.Log(e);
+        }
+
+    }
+
     //methods for the UI
     public void SetPlayerName(TMP_InputField pInputField) {
         playerName = pInputField.text;
@@ -314,9 +341,6 @@ public class TestLobby : MonoBehaviour{
     }
 
     async void DisplayLobbyPlayers() {
-        //foreach (GameObject g in playerDisplayList){
-        //    Destroy(g);
-        //}
 
         joinedLobby = await Lobbies.Instance.GetLobbyAsync(joinedLobby.Id);
 
@@ -357,14 +381,6 @@ public class TestLobby : MonoBehaviour{
         joinedLobbyNameText.text = joinedLobby.Name;
         joinedLobbyPlayersText.text = string.Format("{0}/{1}",joinedLobby.Players.Count,joinedLobby.MaxPlayers);
         joinedLobbyCode.text = joinedLobby.LobbyCode;
-
-        //foreach (Player player in joinedLobby.Players){
-        //    GameObject g = Instantiate(playerDisplayPrefab, playerListParent.transform);
-        //    playerDisplayList.Add(g);
-        //    RectTransform rectTransformPrefab = g.GetComponent<RectTransform>();
-        //    rectTransformPrefab.sizeDelta = new Vector2(sizeComparison.rect.width, sizeComparison.rect.height/5);
-        //    g.GetComponent<PlayerDisplayObjectScript>().UpdatePlayerName(player.Data["playerName"].Value);
-        //}
 
     }
 
