@@ -42,14 +42,53 @@ public class PlayerNetwork : NetworkBehaviour{
         Rotation();
     }
 
+    float pitchOffset = 0.45f;
+
     void Rotation()
     {
-        float gravityOutputMultiplier = -50;
-        Vector3 currentRot = transform.eulerAngles;
-        transform.eulerAngles = new Vector3(currentRot.x, currentRot.y, Input.gyro.gravity.x * gravityOutputMultiplier);
-        Debug.Log(Input.gyro.gravity.x);
-        Debug.Log(Input.gyro.gravity.y);
-        Debug.Log(Input.gyro.attitude);
+        float rotationSpeed = -50;
+        transform.Rotate(easeInCirc(Input.gyro.gravity.z + pitchOffset) * rotationSpeed, 0, easeInCirc(Input.gyro.gravity.x) * rotationSpeed);
+    }
+
+    float lowerThreshold = 0.05f;
+    float upperThreshold = 0.5f;
+
+    float easeInCirc(float progress)
+    {
+        int dir;
+
+        if(progress >= 0)
+        {
+            dir = 1;
+        }
+        else
+        {
+            dir = -1;
+        }
+
+        if (Mathf.Abs(progress) + lowerThreshold >= upperThreshold)
+        {
+            progress = upperThreshold * dir;
+        }
+        else if (Mathf.Abs(progress) >= lowerThreshold)
+        {
+            progress = progress + lowerThreshold * dir;
+        }
+        else
+        {
+            return 0;
+        }
+
+        float easing = 1 - Mathf.Sqrt(1 - Mathf.Abs(Mathf.Pow(progress, 3)));
+
+        if (dir == 1)
+        {
+            return easing;
+        }
+        else
+        {
+            return -easing;
+        }
     }
 
     private void Shoot() {
