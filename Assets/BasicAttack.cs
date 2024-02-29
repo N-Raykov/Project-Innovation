@@ -12,7 +12,7 @@ public class BasicAttack : NetworkBehaviour, IAttacker{
     [SerializeField] float fakeTargetRange;
 
     [Header("Plane Data")]
-    [SerializeField] Collider[] ownerColliders;
+    [SerializeField] PlayerNetwork playerOwner;
     [SerializeField] List<Transform> shootpoints;
     [SerializeField] LayerMask playerMask;
 
@@ -51,7 +51,7 @@ public class BasicAttack : NetworkBehaviour, IAttacker{
 
         RaycastHit hit;
 
-        foreach (Collider col in ownerColliders) {
+        foreach (Collider col in playerOwner.ownerColliders) {
             col.enabled = false;
         }
 
@@ -61,7 +61,7 @@ public class BasicAttack : NetworkBehaviour, IAttacker{
             target = playerCamera.ScreenToWorldPoint(new Vector3(0.5f, 0.5f, 0)) + playerCamera.transform.forward * fakeTargetRange;
         }
 
-        foreach (Collider col in ownerColliders) {
+        foreach (Collider col in playerOwner.ownerColliders) {
             col.enabled = true;
         }
 
@@ -74,7 +74,7 @@ public class BasicAttack : NetworkBehaviour, IAttacker{
         gameObject.GetComponent<NetworkObject>().Spawn(true);
         ProjectileScript projectile = gameObject.GetComponent<ProjectileScript>();
         projectile.LaunchProjectile();
-        projectile.IgnoreOwnerCollider(ownerColliders);
+        projectile.IgnoreColliders(playerOwner.ownerColliders);
 
     }
 

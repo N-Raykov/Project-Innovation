@@ -18,6 +18,10 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float cooldown;
 
+    [SerializeField] List<Collider> _ownerColliders;
+
+    public List<Collider> ownerColliders { get { return _ownerColliders; } }
+
     [Header("Side Tilt Values")]
 
     [SerializeField] AnimationCurve sideTiltCurve;
@@ -44,6 +48,11 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
 
     [SerializeField] Transform modelHolder;
     Vector3 modelHolderRotation=Vector3.zero;
+
+    //[Header("Checkpoints and Laps")]
+
+
+    public Checkpoint lastCheckpoint { get; set; }
 
     Rigidbody rb;
     float lastShotTime = -1000000;
@@ -90,11 +99,11 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
 
 
 
-        rotation += new Vector3(-backwardTiltCurve.Evaluate(Input.acceleration.z) * modelTiltMultiplier, 0, 0)*Time.deltaTime;
+        rotation += new Vector3(-backwardTiltCurve.Evaluate(Input.acceleration.z) , 0, 0)*Time.deltaTime;
 
         modelHolderRotation += new Vector3(-modelTiltMultiplier * backwardTiltCurve.Evaluate(Input.acceleration.z), 0, 0) * Time.deltaTime;
 
-        rotation += new Vector3(0, sideTiltCurve.Evaluate(Input.acceleration.x) * zRotationMultiplier, -zRotationMultiplier * sideTiltCurve.Evaluate(Input.acceleration.x)) * Time.deltaTime;
+        rotation += new Vector3(0, sideTiltCurve.Evaluate(Input.acceleration.x) , -zRotationMultiplier * sideTiltCurve.Evaluate(Input.acceleration.x)) * Time.deltaTime;
 
 
 
@@ -131,6 +140,22 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
 
     public void TakeDamage(float pDamage) {
         currentSpeed = Mathf.Max(currentSpeed-pDamage,0);
+    }
+
+    public void Respawn() {
+        mainCameraController.PreviousStateIsValid = false;
+
+        transform.position = lastCheckpoint.transform.position;
+        currentSpeed = 0;
+
+    }
+
+    public void AddColliderToList(Collider pCollider) {
+        _ownerColliders.Add(pCollider);
+    }
+
+    public void RemoveColliderFromList(Collider pCollider){
+        _ownerColliders.Remove(pCollider);
     }
 
 }

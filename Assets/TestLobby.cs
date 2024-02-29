@@ -43,12 +43,16 @@ public class TestLobby : MonoBehaviour{
     [SerializeField] RectTransform sizeComparison;
     string lobbyCode;
     Coroutine lobbyPlayerUpdateCoroutine;
-    List<GameObject> playerDisplayList = new List<GameObject>();
-    List<Player> playersInLobby = new List<Player>();
     List<PlayerData> playerData = new List<PlayerData>();
     [SerializeField] TextMeshProUGUI joinedLobbyNameText;
     [SerializeField] TextMeshProUGUI joinedLobbyPlayersText;
     [SerializeField] TextMeshProUGUI joinedLobbyCode;
+
+    [SerializeField] GameObject lobbyButtonPrefab;
+    [SerializeField] Transform lobbyButtonParent;
+    [SerializeField] RectTransform lobbyButtonSizeComparison;
+    List<GameObject> lobbyButtonList = new List<GameObject>();
+
 
     Lobby hostLobby;
     Lobby joinedLobby;
@@ -245,10 +249,6 @@ public class TestLobby : MonoBehaviour{
         }
     }
 
-    public void KickPlayer() { 
-    
-    }
-
     public async void DeleteLobby(){
         try {
             await LobbyService.Instance.DeleteLobbyAsync(joinedLobby.Id);
@@ -264,7 +264,10 @@ public class TestLobby : MonoBehaviour{
             QueryLobbiesOptions queryLobbiesOptions = new QueryLobbiesOptions{
                 Count = 25,
                 Filters = new List<QueryFilter> {
-                    new QueryFilter(QueryFilter.FieldOptions.AvailableSlots, "0", QueryFilter.OpOptions.GT),
+                    new QueryFilter(                    
+                        field: QueryFilter.FieldOptions.AvailableSlots,
+                        op: QueryFilter.OpOptions.GT,
+                        value: "0")
                 },
                 Order = new List<QueryOrder> {
                     new QueryOrder(false,QueryOrder.FieldOptions.Created)
@@ -275,6 +278,31 @@ public class TestLobby : MonoBehaviour{
             QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync(queryLobbiesOptions);
 
             Debug.Log("Lobbies found:" + queryResponse.Results.Count);
+
+            foreach (GameObject g in lobbyButtonList) {
+                Destroy(g);
+            }
+            lobbyButtonList.Clear();
+
+            foreach (Lobby l in queryResponse.Results) {
+
+                lobbyButtonList.Add(Instantiate(lobbyButtonPrefab, lobbyButtonParent));
+                RectTransform rectTransformPrefab = lobbyButtonList[lobbyButtonList.Count - 1].GetComponent<RectTransform>();
+                rectTransformPrefab.sizeDelta = new Vector2(lobbyButtonSizeComparison.rect.width, lobbyButtonSizeComparison.rect.height / 5);
+                LobbyButtonScript lobbyButtonScript = lobbyButtonList[lobbyButtonList.Count - 1].GetComponent<LobbyButtonScript>();
+                lobbyButtonScript.SetLobbyName(l.Name);
+                lobbyButtonScript.SetPlayerCountText(string.Format("{0}/{1}", l.Players.Count, l.MaxPlayers));
+
+                //PlayerData pd = new PlayerData();
+                //pd.player = player;
+                //playerData.Add(pd);
+                //pd.playerDisplay = Instantiate(playerDisplayPrefab, playerListParent.transform);
+                //RectTransform rectTransformPrefab = pd.playerDisplay.GetComponent<RectTransform>();
+                //rectTransformPrefab.sizeDelta = new Vector2(sizeComparison.rect.width, sizeComparison.rect.height / 5);
+                //pd.playerDisplay.GetComponent<PlayerDisplayObjectScript>().UpdatePlayerName(player.Data["playerName"].Value);
+
+
+            }
 
 
 
