@@ -30,12 +30,12 @@ PrefabInstance:
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: modelTiltMultiplier
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: zRotationMultiplier
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
@@ -437,6 +437,11 @@ PrefabInstance:
       propertyPath: backwardTiltCurve.m_Curve.Array.data[2].weightedMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2585022445577472407, guid: 6c7b881ad9fc3c44b836d2878244c882,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.17
+      objectReference: {fileID: 0}
     - target: {fileID: 2907660113117579986, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -465,7 +470,7 @@ PrefabInstance:
     - target: {fileID: 4171566226346081469, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: CameraDistance
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4247387317395042150, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
@@ -594,8 +599,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7138721494205873762, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138721494205873762, guid: 6c7b881ad9fc3c44b836d2878244c882,
+        type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.15
+      value: -6.15
       objectReference: {fileID: 0}
     - target: {fileID: 7138721494205873762, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
@@ -609,8 +619,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8839801445042893033, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8839801445042893033, guid: 6c7b881ad9fc3c44b836d2878244c882,
+        type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.15
+      value: -6.15
       objectReference: {fileID: 0}
     - target: {fileID: 8839801445042893033, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
