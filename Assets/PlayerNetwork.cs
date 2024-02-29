@@ -92,11 +92,11 @@ public class PlayerNetwork : NetworkBehaviour{
 
 
 
-        rotation += new Vector3(-backwardTiltCurve.Evaluate(Input.acceleration.z), 0, 0)*Time.deltaTime;
+        rotation += new Vector3(-backwardTiltCurve.Evaluate(Input.acceleration.z) * modelTiltMultiplier, 0, 0)*Time.deltaTime;
 
         modelHolderRotation += new Vector3(-modelTiltMultiplier * backwardTiltCurve.Evaluate(Input.acceleration.z), 0, 0) * Time.deltaTime;
 
-        rotation += new Vector3(0, sideTiltCurve.Evaluate(Input.acceleration.x), -zRotationMultiplier * sideTiltCurve.Evaluate(Input.acceleration.x)) * Time.deltaTime;
+        rotation += new Vector3(0, sideTiltCurve.Evaluate(Input.acceleration.x) * zRotationMultiplier, -zRotationMultiplier * sideTiltCurve.Evaluate(Input.acceleration.x)) * Time.deltaTime;
 
 
 
