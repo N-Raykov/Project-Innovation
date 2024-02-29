@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using Cinemachine;
 using System;
 
-public class PlayerNetwork : NetworkBehaviour{
+public class PlayerNetwork : NetworkBehaviour,IDamagable{
 
 
     public Action<float,float,float> OnSpeedChange;
@@ -74,8 +74,6 @@ public class PlayerNetwork : NetworkBehaviour{
     private void Move(){
         rb.velocity = Vector3.zero;
 
-        //currentSpeed = Mathf.Min(currentSpeed + accelerationCurve.Evaluate(currentSpeed) * Time.fixedDeltaTime, maxSpeed);
-
         currentSpeed += accelerationCurve.Evaluate(currentSpeed) * Time.fixedDeltaTime;
 
         OnSpeedChange?.Invoke(currentSpeed,maxSpeed,trueMaxSpeed);
@@ -126,12 +124,13 @@ public class PlayerNetwork : NetworkBehaviour{
 
     }
 
-    float Map(float s, float a1, float a2, float b1, float b2){
-        return b1 + (s - a1) * (b2 - b1) / (a2 - a1);
+    public void AddSpeed(float pSpeed) {
+        //currentSpeed += pSpeed;
+        currentSpeed = Mathf.Min(currentSpeed + pSpeed, trueMaxSpeed);
     }
 
-    public void AddSpeed(float pSpeed) {
-        currentSpeed += pSpeed;
+    public void TakeDamage(float pDamage) {
+        currentSpeed = Mathf.Max(currentSpeed-pDamage,0);
     }
 
 }
