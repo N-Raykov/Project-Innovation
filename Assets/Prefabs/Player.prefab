@@ -1604,6 +1604,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   zRotationMultiplier: 4
+  maxZRotation: 45
   backwardTiltCurve:
     serializedVersion: 2
     m_Curve:

@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Netcode;
+using Unity;
 
-public class BasicAttack : NetworkBehaviour, IAttacker{
+public class BasicAttack : Attacker{
 
     [Header("Data")]
     [SerializeField] Camera playerCamera;
@@ -34,15 +34,15 @@ public class BasicAttack : NetworkBehaviour, IAttacker{
         Shoot();
     }
 
-    public void Shoot() {
+    public override void Shoot() {
         if (canShoot && Time.time - lastShotTime >= cooldown) {
             ShootBulletServerRpc();
             Debug.Log("shooting");
             lastShotTime = Time.time;
+            
         }
     }
 
-    [ServerRpc]
     private void ShootBulletServerRpc() {
 
         Debug.Log("shooting");
@@ -64,17 +64,17 @@ public class BasicAttack : NetworkBehaviour, IAttacker{
         foreach (Collider col in playerOwner.ownerColliders) {
             col.enabled = true;
         }
-
+        
         GameObject gameObject = Instantiate(bulletPrefab, shootpoints[activeShootPoint].position, Quaternion.identity);
         gameObject.transform.forward = (target - shootpoints[activeShootPoint].position).normalized;
 
         activeShootPoint++;
         activeShootPoint %= shootpoints.Count;
 
-        gameObject.GetComponent<NetworkObject>().Spawn(true);
         ProjectileScript projectile = gameObject.GetComponent<ProjectileScript>();
         projectile.LaunchProjectile();
         projectile.IgnoreColliders(playerOwner.ownerColliders);
+        projectile.damageMod = damageMod;
 
     }
 

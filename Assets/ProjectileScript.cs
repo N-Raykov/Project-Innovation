@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 
-public class ProjectileScript : NetworkBehaviour{
+public class ProjectileScript : NetworkBehaviour {
 
     [SerializeField] float projectileSpeed;
-    [SerializeField] float damage;
+    [SerializeField] int damage;
+
+    public int damageMod { get; set; }
 
     Rigidbody rb;
 
@@ -31,7 +33,7 @@ public class ProjectileScript : NetworkBehaviour{
         IDamagable damagable= collision.transform.root.GetComponent<IDamagable>();
 
         if (damagable!=null) {
-            damagable.TakeDamage(damage);
+            damagable.TakeDamage(damage+damageMod);
         }
 
         Destroy(this.gameObject);

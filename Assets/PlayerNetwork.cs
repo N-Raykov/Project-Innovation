@@ -11,12 +11,7 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
 
     public Action<float,float,float> OnSpeedChange;
 
-    [SerializeField] Transform shootPoint;
-
     [SerializeField] InputActionReference moveActionToUse;
-    [SerializeField] float speed;
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] float cooldown;
 
     [SerializeField] List<Collider> _ownerColliders;
 
@@ -26,6 +21,7 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
 
     [SerializeField] AnimationCurve sideTiltCurve;
     [SerializeField] float zRotationMultiplier;
+    [SerializeField] float maxZRotation;
 
     [Header("Backward Tilt Values")]//rotating towards your feet
 
@@ -48,6 +44,10 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
 
     [SerializeField] Transform modelHolder;
     Vector3 modelHolderRotation=Vector3.zero;
+
+
+    [Header("Skill")]
+    [SerializeField] SkillBase skill;
 
     //[Header("Checkpoints and Laps")]
 
@@ -72,7 +72,6 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
             return;
         
         Move();
-        Shoot();
         
     }
 
@@ -110,6 +109,9 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
         modelHolderRotation.x = Mathf.Max(-maxModelTiltValue, modelHolderRotation.x);
         modelHolderRotation.x = Mathf.Min(maxModelTiltValue, modelHolderRotation.x);
 
+        rotation.z = Mathf.Min(maxZRotation,rotation.z);
+        rotation.z = Mathf.Max(-maxZRotation, rotation.z);
+
         rotation.z = Mathf.Lerp(rotation.z, 0, Time.deltaTime);
         modelHolderRotation.x = Mathf.Lerp(modelHolderRotation.x, 0, Time.deltaTime);
 
@@ -118,23 +120,7 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
 
     }
 
-    private void Shoot() {
-        if (Input.GetKey(KeyCode.Space) && Time.time - lastShotTime > cooldown) {
-            ShootBulletServerRpc();
-            lastShotTime = Time.time;
-        }
-    }
-
-    [ServerRpc]
-    private void ShootBulletServerRpc() {
-        GameObject gameObject = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
-        gameObject.GetComponent<NetworkObject>().Spawn(true);
-        gameObject.GetComponent<ProjectileScript>().LaunchProjectile();
-
-    }
-
     public void AddSpeed(float pSpeed) {
-        //currentSpeed += pSpeed;
         currentSpeed = Mathf.Min(currentSpeed + pSpeed, trueMaxSpeed);
     }
 
@@ -145,6 +131,8 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
     public void Respawn() {
         mainCameraController.PreviousStateIsValid = false;
 
+        modelHolderRotation = Vector3.zero;
+        rotation = lastCheckpoint.transform.localEulerAngles;
         transform.position = lastCheckpoint.transform.position;
         currentSpeed = 0;
 
@@ -156,6 +144,10 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
 
     public void RemoveColliderFromList(Collider pCollider){
         _ownerColliders.Remove(pCollider);
+    }
+
+    public void UseSkill() {
+        skill.UseSkill();
     }
 
 }
