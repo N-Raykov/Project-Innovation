@@ -50,7 +50,7 @@ PrefabInstance:
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: zRotationMultiplier
-      value: 4.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
@@ -105,12 +105,12 @@ PrefabInstance:
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: sideTiltCurve.m_Curve.Array.data[0].inSlope
-      value: 45.297966
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: sideTiltCurve.m_Curve.Array.data[1].inSlope
-      value: 15.3335705
+      value: 44.476223
       objectReference: {fileID: 0}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
@@ -120,7 +120,7 @@ PrefabInstance:
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: sideTiltCurve.m_Curve.Array.data[3].inSlope
-      value: 52.129078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
@@ -175,12 +175,12 @@ PrefabInstance:
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: sideTiltCurve.m_Curve.Array.data[0].outSlope
-      value: 45.297966
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: sideTiltCurve.m_Curve.Array.data[1].inWeight
-      value: 0.6828251
+      value: 0.4713752
       objectReference: {fileID: 0}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: sideTiltCurve.m_Curve.Array.data[2].outSlope
-      value: 15.595171
+      value: 45.664577
       objectReference: {fileID: 0}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
@@ -200,7 +200,7 @@ PrefabInstance:
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: sideTiltCurve.m_Curve.Array.data[3].outSlope
-      value: 52.129078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
@@ -270,7 +270,7 @@ PrefabInstance:
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: sideTiltCurve.m_Curve.Array.data[2].outWeight
-      value: 0.68546945
+      value: 0.47308552
       objectReference: {fileID: 0}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
@@ -600,12 +600,12 @@ PrefabInstance:
     - target: {fileID: 5922477096607809564, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: m_Name
-      value: Player Balanced
+      value: Player Testing
       objectReference: {fileID: 0}
     - target: {fileID: 5922477096607809565, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1861108421
+      value: 2422250089
       objectReference: {fileID: 0}
     - target: {fileID: 5922477096607809566, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}

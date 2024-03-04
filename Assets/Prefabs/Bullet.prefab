@@ -193,4 +193,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 200
-  damage: 3
+  damage: 10
