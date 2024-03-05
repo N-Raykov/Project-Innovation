@@ -15,10 +15,14 @@ public class SpeedBoostRing : NetworkBehaviour{
         Debug.Log(other.name);
 
         PlayerNetwork player = other.transform.root.gameObject.GetComponent<PlayerNetwork>();
+        AI_Test ai_controller = other.transform.root.gameObject.GetComponent<AI_Test>();
         
         if (player != null && player != lastPlayerHit) {
             player.AddSpeed(speedIncrease);
             lastPlayerHit = player;
+        }
+        else if (ai_controller != null) {
+            ai_controller.AddSpeed(speedIncrease);
         }
 
     }
