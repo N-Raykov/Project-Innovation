@@ -69,10 +69,10 @@ public class AI_Test : MonoBehaviour, IDamagable
         targetForwardDirection = (NavPoints[pointIndex].position + targetOffset) - transform.position;
         targetForwardDirection.Normalize();
 
-        print("Current target point: " + NavPoints[pointIndex].name.ToString());
+        // print("Current target point: " + NavPoints[pointIndex].name.ToString());
         // print("Next point: " + pointIndex.ToString());
         
-        print("Target Direction: " + targetForwardDirection.ToString());
+        // print("Target Direction: " + targetForwardDirection.ToString());
         
     }
 
