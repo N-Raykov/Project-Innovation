@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Netcode;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using System;
 
-public class PlayerNetwork : NetworkBehaviour,IDamagable{
+public class PlayerNetwork : MonoBehaviour,IDamagable{
 
 
     public Action<float,float,float> OnSpeedChange;
@@ -37,6 +36,8 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
     [SerializeField] float trueMaxSpeed;
     public float currentSpeed=0;
 
+    public bool isMovementEnabled { get; set; }
+
     [Header("Camera Controls")]
 
     [SerializeField] CinemachineVirtualCamera mainCameraController;
@@ -60,6 +61,7 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
     Vector3 rotation;
 
     private void Awake(){
+        isMovementEnabled = false;
         rb = GetComponent<Rigidbody>();
         Input.gyro.enabled = true;
 
@@ -68,14 +70,16 @@ public class PlayerNetwork : NetworkBehaviour,IDamagable{
     }
 
     private void FixedUpdate(){
-        if (!IsOwner)
+        if (!isMovementEnabled)
             return;
-        
+
         Move();
-        
     }
 
     private void Update(){
+        if (!isMovementEnabled)
+            return;
+
         FinalRotation();
     }
 

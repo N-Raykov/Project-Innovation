@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Netcode;
-
-public class LevelManager : NetworkBehaviour{
+public class LevelManager : MonoBehaviour{
 
     public LevelManager instance { get; private set; }
 

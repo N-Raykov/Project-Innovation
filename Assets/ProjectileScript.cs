@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Netcode;
 
-public class ProjectileScript : NetworkBehaviour {
+public class ProjectileScript : MonoBehaviour {
 
     [SerializeField] float projectileSpeed;
     [SerializeField] int damage;

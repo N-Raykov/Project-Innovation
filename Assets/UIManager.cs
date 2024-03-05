@@ -5,6 +5,8 @@ using TMPro;
 
 public class UIManager : MonoBehaviour{
 
+    public static UIManager instance { get; private set; }
+
     [SerializeField] PlayerNetwork targetPlayer;
 
     [Header("Player Speed")]
@@ -12,8 +14,22 @@ public class UIManager : MonoBehaviour{
     [SerializeField] RectTransform speedIndicatorOverdrive;
     [SerializeField] TextMeshProUGUI speedText;
 
+    [Header("Round Start Countdown")]
+    [SerializeField] TextMeshProUGUI countdownText;
+    [SerializeField] int countdownDuration;
+
+
     private void Awake(){
+
+        if (instance != null)
+            Destroy(instance);
+
+        instance = this;
         targetPlayer.OnSpeedChange += UpdateSpeedIndicator;
+    }
+
+    private void Start(){
+        StartCountdown(countdownDuration);
     }
 
     void UpdateSpeedIndicator(float pCurrentSpeed,float pMaxSpeed,float pTrueMaxSpeed) {
@@ -30,7 +46,22 @@ public class UIManager : MonoBehaviour{
         }
     }
 
+    public void StartCountdown(int duration) {
+        StartCoroutine(CountdownCoroutine(duration));
+    }
 
+    IEnumerator CountdownCoroutine(int duration) {
+
+        while (duration >= 0) {
+            countdownText.text = duration.ToString();
+            duration--;
+            yield return new WaitForSeconds(1);
+        }
+
+        targetPlayer.isMovementEnabled = true;
+        countdownText.enabled = false;
+
+    }
 
 
 }
