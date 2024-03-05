@@ -773,7 +773,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxSpeed: 55
+  maxSpeed: 15
   currentSpeed: 0
   mainCameraController: {fileID: 537211279126499049}
   mainCamera: {fileID: 6351719001490147247}

@@ -88,10 +88,6 @@ public class PlayerNetwork : NetworkBehaviour{
         
     }
 
-    private void Update(){
-        FinalRotation();
-    }
-
     private void Move(){
         rb.velocity = Vector3.zero;
 
@@ -101,49 +97,63 @@ public class PlayerNetwork : NetworkBehaviour{
 
         rb.AddForce(transform.forward*currentSpeed,ForceMode.VelocityChange);
 
+        Rotation();
     }
 
 
-    void FinalRotation(){
 
-        //Debug.Log(Input.acceleration);
+    float pitchOffset = 0.45f;
 
-        transform.localRotation = Quaternion.identity;
-        modelHolder.localRotation = Quaternion.identity;
+    void Rotation()
+    {
+        float rotationSpeed = -5;
+        transform.Rotate(easeInCirc(Input.gyro.gravity.z + pitchOffset) * rotationSpeed, 0, 0);
+        if (transform.rotation.z >= 0 && transform.rotation.z <= 45 || transform.rotation.z < 0 && transform.rotation.z >= -45)
+        {
+            transform.Rotate(0, 0, easeInCirc(Input.gyro.gravity.x) * rotationSpeed);
+        }
+        Debug.Log(transform.rotation);
+    }
 
-        if (Input.acceleration.z > minBackwardTiltValue){
-            float accelerationZ = Mathf.Clamp(Mathf.Abs(Input.acceleration.z), minBackwardTiltValue, maxBackwardTiltValue);
-            float mappedZValue = Map(accelerationZ, minBackwardTiltValue, maxBackwardTiltValue, minForwardRotationValue, maxForwardRotationValue);
-            rotation += new Vector3(-Mathf.Sign(Input.acceleration.z) * mappedZValue, 0, 0) * Time.deltaTime;
+    float lowerThreshold = 0.05f;
+    float upperThreshold = 0.5f;
 
-            modelHolderRotation += new Vector3(-0.25f, 0, 0);
+    float easeInCirc(float progress)
+    {
+        int dir;
+
+        if (progress >= 0)
+        {
+            dir = 1;
+        }
+        else
+        {
+            dir = -1;
         }
 
-        if (Input.acceleration.z < minForwardTiltValue){
-            float accelerationZ = Mathf.Clamp(Mathf.Abs(Input.acceleration.z), minForwardTiltValue, maxForwardTiltValue);
-            float mappedZValue = Map(accelerationZ, minForwardTiltValue, maxForwardTiltValue, minForwardRotationValue, maxForwardRotationValue);
-            rotation += new Vector3(-Mathf.Sign(Input.acceleration.z) * mappedZValue, 0, 0) * Time.deltaTime;
-
-            modelHolderRotation += new Vector3(0.25f, 0, 0);
-
+        if (Mathf.Abs(progress) + lowerThreshold >= upperThreshold)
+        {
+            progress = upperThreshold * dir;
+        }
+        else if (Mathf.Abs(progress) >= lowerThreshold)
+        {
+            progress = progress + lowerThreshold * dir;
+        }
+        else
+        {
+            return 0;
         }
 
-        if (Mathf.Abs(Input.acceleration.x) > minSideTiltValue){
-            float accelerationX = Mathf.Clamp(Mathf.Abs(Input.acceleration.x), minSideTiltValue, maxSideTiltValue);
-            float mappedXValue = Map(accelerationX, minSideTiltValue, maxSideTiltValue, minSideRotationValue, maxSideRotationValue);
-            rotation += new Vector3(0, Mathf.Sign(Input.acceleration.x) * mappedXValue, -2.5f * Mathf.Sign(Input.acceleration.x) * mappedXValue) * Time.deltaTime;
+        float easing = 1 - Mathf.Sqrt(1 - Mathf.Abs(Mathf.Pow(progress, 3)));
 
+        if (dir == 1)
+        {
+            return easing;
         }
-
-        modelHolderRotation.x = Mathf.Max(-25, modelHolderRotation.x);
-        modelHolderRotation.x = Mathf.Min(25, modelHolderRotation.x);
-
-        rotation.z = Mathf.Lerp(rotation.z, 0, Time.deltaTime);
-        modelHolderRotation.x = Mathf.Lerp(modelHolderRotation.x, 0, Time.deltaTime);
-
-        transform.Rotate(rotation);
-        modelHolder.Rotate(modelHolderRotation);
-
+        else
+        {
+            return -easing;
+        }
     }
 
     private void Shoot() {
