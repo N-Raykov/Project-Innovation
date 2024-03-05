@@ -5,27 +5,6 @@ using Unity;
 
 public class BasicAttack : Attacker{
 
-    [Header("Data")]
-    [SerializeField] Camera playerCamera;
-    [SerializeField] GameObject bulletPrefab;
-
-    [SerializeField] float fakeTargetRange;
-
-    [Header("Plane Data")]
-    [SerializeField] PlayerNetwork playerOwner;
-    [SerializeField] List<Transform> shootpoints;
-    [SerializeField] LayerMask playerMask;
-
-    int activeShootPoint=0;
-
-    [Header("Stats")]
-    [SerializeField] float aimAssistRadius;
-    [SerializeField] float cooldown;
-
-    float lastShotTime = -100000000;
-
-    bool canShoot = false;
-
     public void ChangeShootingState(bool pState) {
         canShoot = pState;
     }
@@ -37,7 +16,6 @@ public class BasicAttack : Attacker{
     public override void Shoot() {
         if (canShoot && Time.time - lastShotTime >= cooldown) {
             ShootBulletServerRpc();
-            Debug.Log("shooting");
             lastShotTime = Time.time;
             
         }
@@ -55,7 +33,7 @@ public class BasicAttack : Attacker{
             col.enabled = false;
         }
 
-        if (Physics.SphereCast(playerCamera.transform.position, aimAssistRadius, playerCamera.transform.forward, out hit, fakeTargetRange)) {
+        if (Physics.SphereCast(playerCamera.transform.position, aimAssistRadius, playerCamera.transform.forward, out hit, fakeTargetRange,playerMask,QueryTriggerInteraction.Ignore)) {
             target = hit.point;
         } else {
             target = playerCamera.ScreenToWorldPoint(new Vector3(0.5f, 0.5f, 0)) + playerCamera.transform.forward * fakeTargetRange;

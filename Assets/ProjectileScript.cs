@@ -12,6 +12,7 @@ public class ProjectileScript : MonoBehaviour {
     Rigidbody rb;
 
     private void Awake(){
+        damageMod = 0;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -33,6 +34,7 @@ public class ProjectileScript : MonoBehaviour {
 
         if (damagable!=null) {
             damagable.TakeDamage(damage+damageMod);
+            Debug.Log("Damaged");
         }
 
         Destroy(this.gameObject);

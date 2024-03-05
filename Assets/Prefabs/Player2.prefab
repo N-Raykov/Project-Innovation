@@ -495,13 +495,13 @@ PrefabInstance:
     - target: {fileID: 243813147537986375, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: countdownDuration
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 5277336885885135207}
+      objectReference: {fileID: 2732676599961908977}
     - target: {fileID: 895817628480093387, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: maxSpeed
@@ -832,6 +832,11 @@ PrefabInstance:
       propertyPath: backwardTiltCurve.m_Curve.Array.data[4].outWeight
       value: 0.10956217
       objectReference: {fileID: 0}
+    - target: {fileID: 1967985665287852866, guid: 6c7b881ad9fc3c44b836d2878244c882,
+        type: 3}
+      propertyPath: aimAssistRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2585022445577472407, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -995,17 +1000,17 @@ PrefabInstance:
     - target: {fileID: 7138721494205873762, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.26
       objectReference: {fileID: 0}
     - target: {fileID: 7138721494205873762, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.67
+      value: 6.71
       objectReference: {fileID: 0}
     - target: {fileID: 7138721494205873762, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.65
+      value: -16.779999
       objectReference: {fileID: 0}
     - target: {fileID: 8839801445042893033, guid: 6c7b881ad9fc3c44b836d2878244c882,
         type: 3}
@@ -1087,6 +1092,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2732676599961908977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5549823629751402628, guid: 6c7b881ad9fc3c44b836d2878244c882,
+    type: 3}
+  m_PrefabInstance: {fileID: 7559439087030417013}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240236107479168617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1882d661a460347800afa012d5f58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3467210057273525652 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6410457221961216993, guid: 6c7b881ad9fc3c44b836d2878244c882,

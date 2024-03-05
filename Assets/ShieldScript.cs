@@ -20,7 +20,7 @@ public class ShieldScript : NetworkBehaviour,IDamagable{
     }
 
     public void TakeDamage(float pDamage) {
-        hp--;
+        hp-=(int)pDamage;
         if (hp <= 0)
             Destroy(this.gameObject);
     }

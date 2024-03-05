@@ -115,6 +115,7 @@ public class AI_Test : MonoBehaviour, IDamagable
 
      public void TakeDamage(float pDamage) {
         currentSpeed = Mathf.Max(currentSpeed-pDamage,0);
+        Debug.Log("Took Damage");
     }
 
      public void AddSpeed(float pSpeed) {

@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 1992442063283201317}
   - component: {fileID: 1992442063283201323}
   - component: {fileID: 1992442063283201322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlaneVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 1992442063968628909}
   - component: {fileID: 1992442063968628915}
   - component: {fileID: 1992442063968628914}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 1992442063983375617}
   - component: {fileID: 1992442063983375623}
   - component: {fileID: 1992442063983375622}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 1992442064179618332}
   - component: {fileID: 1992442064179618335}
   - component: {fileID: 1992442064179618334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AIPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +693,7 @@ GameObject:
   - component: {fileID: 1992442064372967213}
   - component: {fileID: 1992442064372967219}
   - component: {fileID: 1992442064372967218}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -990,7 +990,7 @@ GameObject:
   - component: {fileID: 1992442064891186412}
   - component: {fileID: 1992442064891186418}
   - component: {fileID: 1992442064891186413}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
