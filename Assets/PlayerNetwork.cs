@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using System;
+using FMODUnity;
 
 public class PlayerNetwork : MonoBehaviour,IDamagable{
 
@@ -50,7 +51,8 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
     [Header("Skill")]
     [SerializeField] SkillBase skill;
 
-    //[Header("Checkpoints and Laps")]
+    [Header("Audio")]
+    [SerializeField] StudioEventEmitter emitter;
 
 
     public Checkpoint lastCheckpoint { get; set; }
@@ -90,6 +92,8 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
 
         OnSpeedChange?.Invoke(currentSpeed,maxSpeed,trueMaxSpeed);
 
+        emitter.SetParameter("RPM", Mathf.Min(currentSpeed /maxSpeed,0.999f));
+
         rb.AddForce(transform.forward*currentSpeed,ForceMode.VelocityChange);
 
     }
@@ -100,15 +104,11 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
         transform.localRotation = Quaternion.identity;
         modelHolder.localRotation = Quaternion.identity;
 
-
-
         rotation += new Vector3(-backwardTiltCurve.Evaluate(Input.acceleration.z) , 0, 0)*Time.deltaTime;
 
         modelHolderRotation += new Vector3(-modelTiltMultiplier * backwardTiltCurve.Evaluate(Input.acceleration.z), 0, 0) * Time.deltaTime;
 
         rotation += new Vector3(0, sideTiltCurve.Evaluate(Input.acceleration.x), -zRotationMultiplier * sideTiltCurve.Evaluate(Input.acceleration.x)) * Time.deltaTime;
-
-
 
         modelHolderRotation.x = Mathf.Max(-maxModelTiltValue, modelHolderRotation.x);
         modelHolderRotation.x = Mathf.Min(maxModelTiltValue, modelHolderRotation.x);

@@ -1564,6 +1564,7 @@ GameObject:
   - component: {fileID: 7243495395596176062}
   - component: {fileID: 8333688207773115703}
   - component: {fileID: 2732676599961908977}
+  - component: {fileID: 6772576230817728949}
   m_Layer: 6
   m_Name: PlaneLight
   m_TagString: Untagged
@@ -1809,6 +1810,7 @@ MonoBehaviour:
   mainCamera: {fileID: 3516558191415390682}
   modelHolder: {fileID: 4661947700912372903}
   skill: {fileID: 2732676599961908977}
+  emitter: {fileID: 6772576230817728949}
 --- !u!114 &8333688207773115703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1852,6 +1854,39 @@ MonoBehaviour:
   shieldPrefab: {fileID: 776232613642862047, guid: 81d50c1e7b179ee448063d18c1f7f453,
     type: 3}
   shieldParent: {fileID: 380793976363936840}
+--- !u!114 &6772576230817728949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240236107479168617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 44981851
+      Data2: 1300163742
+      Data3: 1447689344
+      Data4: -1497245016
+    Path: event:/SFX/PlayerPlane/PlaneEngine/FatPlane/FatEngine
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params:
+  - Name: RPM
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5408307212630549565
 GameObject:
   m_ObjectHideFlags: 0
