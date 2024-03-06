@@ -16,7 +16,7 @@ abstract public class Attacker:MonoBehaviour{
     [SerializeField] protected LayerMask playerMask;
 
     protected int activeShootPoint = 0;
-    public int damageMod { get; set; }
+    public float damageMod { get; set; }
 
     [Header("Stats")]
     [SerializeField] protected float aimAssistRadius;

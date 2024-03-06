@@ -27,7 +27,7 @@ public class CharacterSelectionManager : MonoBehaviour{
             content.GetChild(i).GetComponent<DisplayCharacterStats>().OnClick += UpdateDisplay;
         }
     }
-    private void UpdateDisplay(Sprite pSprite, int pDamageValue, float pMaxSpeed, float pAcceleration, float pAttackCooldown,string pCharacterName,string pSkillName,string pSkillDescription,int pSkillDuration,int pSkillCooldown,GameObject pCharacterPrefab, bool pIsOn){
+    private void UpdateDisplay(Sprite pSprite, float pDamageValue, float pMaxSpeed, string pAcceleration, float pAttackCooldown,string pCharacterName,string pSkillName,string pSkillDescription,float pSkillDuration,float pSkillCooldown,GameObject pCharacterPrefab, bool pIsOn){
 
         if (!pIsOn)
             return;
@@ -35,7 +35,7 @@ public class CharacterSelectionManager : MonoBehaviour{
         characterImage.sprite = pSprite;
         damageText.text = pDamageValue.ToString();
         speedText.text = pMaxSpeed.ToString();
-        accelerationText.text = pAcceleration.ToString();
+        accelerationText.text = pAcceleration;
         attackCooldownText.text = pAttackCooldown.ToString();
         characterNameText.text = pCharacterName;
 

@@ -1564,10 +1564,8 @@ GameObject:
   - component: {fileID: 7243495395596176062}
   - component: {fileID: 8333688207773115703}
   - component: {fileID: 2732676599961908977}
-  - component: {fileID: 2806550153615434742}
-  - component: {fileID: 5277336885885135207}
   m_Layer: 6
-  m_Name: PlaneHeavy
+  m_Name: PlaneLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1633,22 +1631,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -1.0065079
-      value: -55.9198
-      inSlope: 161.77245
-      outSlope: 161.77245
+      time: -1.0041962
+      value: -75
+      inSlope: 173.54935
+      outSlope: 173.54935
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.088650055
+      outWeight: 0.077108905
     - serializedVersion: 3
       time: -0.25
-      value: -11.25
-      inSlope: 32.496124
-      outSlope: 32.496124
+      value: -12.5
+      inSlope: 15.070097
+      outSlope: 15.070097
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.1414551
+      inWeight: 0.18861042
       outWeight: 0.33333334
     - serializedVersion: 3
       time: -0.249
@@ -1670,7 +1668,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.25
-      value: 11.25
+      value: 12.5
       inSlope: 11.775911
       outSlope: 11.775911
       tangentMode: 0
@@ -1679,7 +1677,7 @@ MonoBehaviour:
       outWeight: 0.19627245
     - serializedVersion: 3
       time: 1
-      value: 55
+      value: 75
       inSlope: 155.71375
       outSlope: 155.71375
       tangentMode: 0
@@ -1695,22 +1693,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -1.0041962
-      value: -30
-      inSlope: 69.94979
-      outSlope: 69.94979
+      time: -1.007843
+      value: -40
+      inSlope: 100.20725
+      outSlope: 100.20725
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.11713218
+      outWeight: 0.113877185
     - serializedVersion: 3
       time: -0.25
-      value: -8.75
-      inSlope: 21.838127
-      outSlope: 21.838127
+      value: -12.5
+      inSlope: 11.37731
+      outSlope: 11.37731
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.15515125
+      inWeight: 0.26167217
       outWeight: 1
     - serializedVersion: 3
       time: -0.249
@@ -1732,21 +1730,21 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.175
-      value: 8.75
-      inSlope: 22.849472
-      outSlope: 22.849472
+      value: 12.5
+      inSlope: 26.855963
+      outSlope: 26.855963
       tangentMode: 0
       weightedMode: 0
       inWeight: 1
-      outWeight: 0.14412072
+      outWeight: 0.18790972
     - serializedVersion: 3
-      time: 1
-      value: 30.164322
-      inSlope: 63.201054
-      outSlope: 63.201054
+      time: 0.99768066
+      value: 40
+      inSlope: 102.105576
+      outSlope: 102.105576
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.10267258
+      inWeight: 0.120415084
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -1758,16 +1756,16 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 7
-      inSlope: -0.66001403
-      outSlope: -0.66001403
+      value: 4.25
+      inSlope: -0.42113593
+      outSlope: -0.42113593
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.098076925
+      outWeight: 0.11248743
     - serializedVersion: 3
-      time: 14
-      value: 2.15
+      time: 21.5
+      value: 1.25
       inSlope: -0.12700604
       outSlope: -0.12700604
       tangentMode: 0
@@ -1775,7 +1773,7 @@ MonoBehaviour:
       inWeight: 0.11684336
       outWeight: 0
     - serializedVersion: 3
-      time: 14.1
+      time: 21.6
       value: 0
       inSlope: -0.309167
       outSlope: -0.309167
@@ -1784,17 +1782,17 @@ MonoBehaviour:
       inWeight: 0.32909396
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 14.5
-      value: -2
-      inSlope: -0.3675135
-      outSlope: -0.3675135
+      time: 22
+      value: -4
+      inSlope: -0.42917386
+      outSlope: -0.42917386
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.082645506
+      outWeight: 0.17587991
     - serializedVersion: 3
-      time: 35
-      value: -5
+      time: 50
+      value: -10
       inSlope: -0.09816766
       outSlope: -0.09816766
       tangentMode: 0
@@ -1804,13 +1802,13 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxSpeed: 14
-  trueMaxSpeed: 35
+  maxSpeed: 21.5
+  trueMaxSpeed: 50
   currentSpeed: 0
   mainCameraController: {fileID: 8042315145009805468}
   mainCamera: {fileID: 3516558191415390682}
   modelHolder: {fileID: 4661947700912372903}
-  skill: {fileID: 5277336885885135207}
+  skill: {fileID: 2732676599961908977}
 --- !u!114 &8333688207773115703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1824,7 +1822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 3516558191415390682}
-  bulletPrefab: {fileID: 675641509155238383, guid: 915226d821c14c34eaf2a898b3cd437a,
+  bulletPrefab: {fileID: 675641509155238383, guid: 2dc1bb5aedba1b54f851e32574b2224b,
     type: 3}
   fakeTargetRange: 500
   playerOwner: {fileID: 7243495395596176062}
@@ -1835,7 +1833,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   aimAssistRadius: 1
-  cooldown: 0.1
+  cooldown: 0.225
 --- !u!114 &2732676599961908977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1848,44 +1846,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1882d661a460347800afa012d5f58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 30
-  duration: 10
+  cooldown: 25
+  duration: 7.5
   playerOwner: {fileID: 7243495395596176062}
   shieldPrefab: {fileID: 776232613642862047, guid: 81d50c1e7b179ee448063d18c1f7f453,
     type: 3}
   shieldParent: {fileID: 380793976363936840}
---- !u!114 &2806550153615434742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4240236107479168617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63012340623ae4346a3eb120d295e5c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 40
-  duration: 10
-  attacker: {fileID: 8333688207773115703}
-  damageIncrease: 5
---- !u!114 &5277336885885135207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4240236107479168617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a6c06032020f241af968f60d5a41ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 30
-  duration: 0
-  player: {fileID: 7243495395596176062}
-  speedIncrease: 15
 --- !u!1 &5408307212630549565
 GameObject:
   m_ObjectHideFlags: 0

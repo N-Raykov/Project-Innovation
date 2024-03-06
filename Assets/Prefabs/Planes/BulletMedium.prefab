@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 675641509155238368}
   - component: {fileID: -997125311025216735}
   m_Layer: 7
-  m_Name: Bullet
+  m_Name: BulletMedium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,4 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 200
-  damage: 2
+  damage: 0.75

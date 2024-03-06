@@ -214,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 3158103012351092190, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: m_Name
-      value: Character (1)
+      value: MediumPlane
       objectReference: {fileID: 0}
     - target: {fileID: 3158103012351092191, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
@@ -324,34 +324,53 @@ PrefabInstance:
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: maxSpeed
-      value: 5
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: skillName
+      value: Attack Boost
       objectReference: {fileID: 0}
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: damageValue
-      value: 2
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: acceleration
-      value: 1
+      value: High
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: SkillCooldown
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: characterName
-      value: kuh
+      value: Medium Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: skillDuration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: attackCooldown
-      value: 7
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: characterPrefab
       value: 
-      objectReference: {fileID: 5922477096607809564, guid: 6c7b881ad9fc3c44b836d2878244c882,
+      objectReference: {fileID: 2140779998}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
+      propertyPath: skillDescription
+      value: Increases the damage dealt to other planes by 0.35 for a short duration.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac3b3f97f8f53c548a07c36c50fdb8d2, type: 3}
 --- !u!1 &124228782
@@ -1128,10 +1147,10 @@ RectTransform:
   m_Father: {fileID: 1004235562}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.68700004, y: 0.30148157}
+  m_AnchorMin: {x: 0.6462307, y: 0.30148157}
   m_AnchorMax: {x: 0.8, y: 0.33663362}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0.000005722046}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &364713207
 MonoBehaviour:
@@ -3957,7 +3976,7 @@ PrefabInstance:
     - target: {fileID: 3158103012351092190, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: m_Name
-      value: Character (2)
+      value: HeavyPlane
       objectReference: {fileID: 0}
     - target: {fileID: 3158103012351092191, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
@@ -4064,8 +4083,71 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: skillName
+      value: Speed Boost
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: damageValue
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: acceleration
+      value: Very High
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: SkillCooldown
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: characterName
+      value: Heavy Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: skillDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: attackCooldown
+      value: 0.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: characterPrefab
+      value: 
+      objectReference: {fileID: 2133194574}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: skillDescription
+      value: Instantly gives a huge boost of speed that will go above the maximum
+        speed of the plane. The extra speed will slowly decay after some time.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac3b3f97f8f53c548a07c36c50fdb8d2, type: 3}
+--- !u!1 &2133194574 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3158103012351092190, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2133194573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2140779998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3158103012351092190, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 87103025}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2141645927
 GameObject:
   m_ObjectHideFlags: 0
@@ -4177,7 +4259,7 @@ PrefabInstance:
     - target: {fileID: 3158103012351092190, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: m_Name
-      value: Character
+      value: LightPlane
       objectReference: {fileID: 0}
     - target: {fileID: 3158103012351092191, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
@@ -4286,8 +4368,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
+      propertyPath: maxSpeed
+      value: 21.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
       propertyPath: skillName
       value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: damageValue
+      value: 1.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: acceleration
+      value: Low
       objectReference: {fileID: 0}
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
@@ -4297,12 +4394,17 @@ PrefabInstance:
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: characterName
-      value: asgas
+      value: Light Plane
       objectReference: {fileID: 0}
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: skillDuration
-      value: 10
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
+        type: 3}
+      propertyPath: attackCooldown
+      value: 0.225
       objectReference: {fileID: 0}
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}

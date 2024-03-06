@@ -6,7 +6,7 @@ public class DamageSkill : SkillBase{
 
     [Header("Damage Data")]
     [SerializeField] Attacker attacker;
-    [SerializeField] int damageIncrease;
+    [SerializeField] float damageIncrease;
 
 
     public override void UseSkill() {

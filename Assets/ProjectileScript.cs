@@ -7,7 +7,7 @@ public class ProjectileScript : MonoBehaviour {
     [SerializeField] float projectileSpeed;
     [SerializeField] float damage;
 
-    public int damageMod { get; set; }
+    public float damageMod { get; set; }
 
     Rigidbody rb;
 

@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class DisplayCharacterStats : MonoBehaviour{
 
-    public Action<Sprite, int, float,float,float,string,string,string,int,int,GameObject,bool> OnClick;
+    public Action<Sprite, float, float,string,float,string,string,string,float,float,GameObject,bool> OnClick;
     [SerializeField] Toggle toggle;
     [SerializeField] Image image;
 
     [SerializeField] Sprite sprite;
-    [SerializeField] int damageValue;
+    [SerializeField] float damageValue;
     [SerializeField] float maxSpeed;
-    [SerializeField] float acceleration;
+    [SerializeField] string acceleration;
     [SerializeField] float attackCooldown;
 
     [SerializeField] string characterName;
@@ -21,8 +21,8 @@ public class DisplayCharacterStats : MonoBehaviour{
     [Header("Skill Page")]
     [SerializeField] string skillName;
     [SerializeField] string skillDescription;
-    [SerializeField] int skillDuration;
-    [SerializeField] int SkillCooldown;
+    [SerializeField] float skillDuration;
+    [SerializeField] float SkillCooldown;
 
     [Header("Character")]
     [SerializeField] GameObject characterPrefab;

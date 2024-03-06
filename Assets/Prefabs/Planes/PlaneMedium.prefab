@@ -1563,9 +1563,7 @@ GameObject:
   - component: {fileID: 3497035357284737070}
   - component: {fileID: 7243495395596176062}
   - component: {fileID: 8333688207773115703}
-  - component: {fileID: 2732676599961908977}
   - component: {fileID: 2806550153615434742}
-  - component: {fileID: 5277336885885135207}
   m_Layer: 6
   m_Name: PlaneMedium
   m_TagString: Untagged
@@ -1836,24 +1834,6 @@ MonoBehaviour:
     m_Bits: 64
   aimAssistRadius: 1
   cooldown: 0.1
---- !u!114 &2732676599961908977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4240236107479168617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab1882d661a460347800afa012d5f58c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 30
-  duration: 10
-  playerOwner: {fileID: 7243495395596176062}
-  shieldPrefab: {fileID: 776232613642862047, guid: 81d50c1e7b179ee448063d18c1f7f453,
-    type: 3}
-  shieldParent: {fileID: 380793976363936840}
 --- !u!114 &2806550153615434742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1866,26 +1846,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63012340623ae4346a3eb120d295e5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 40
-  duration: 10
+  cooldown: 25
+  duration: 5
   attacker: {fileID: 8333688207773115703}
-  damageIncrease: 5
---- !u!114 &5277336885885135207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4240236107479168617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a6c06032020f241af968f60d5a41ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 30
-  duration: 0
-  player: {fileID: 7243495395596176062}
-  speedIncrease: 15
+  damageIncrease: 0.35
 --- !u!1 &5408307212630549565
 GameObject:
   m_ObjectHideFlags: 0
