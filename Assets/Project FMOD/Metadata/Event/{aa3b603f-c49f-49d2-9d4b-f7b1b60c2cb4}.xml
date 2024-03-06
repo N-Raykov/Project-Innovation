@@ -144,6 +144,9 @@
 		<property name="length">
 			<value>0.47999999999999998</value>
 		</property>
+		<property name="looping">
+			<value>true</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{3219299e-1c48-4207-82a1-f791fe28629f}</destination>
 		</relationship>

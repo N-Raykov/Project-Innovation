@@ -11708,7 +11708,8 @@ PrefabInstance:
       propertyPath: NavPoints.Array.data[24]
       value: 
       objectReference: {fileID: 1657834938}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1992442063651062951, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
 --- !u!1001 &468653475
 PrefabInstance:
@@ -16127,7 +16128,8 @@ PrefabInstance:
       propertyPath: NavPoints.Array.data[24]
       value: 
       objectReference: {fileID: 1657834938}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1992442063651062951, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
 --- !u!1001 &622416760
 PrefabInstance:
@@ -22566,7 +22568,8 @@ PrefabInstance:
       propertyPath: NavPoints.Array.data[24]
       value: 
       objectReference: {fileID: 260322729}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1992442063651062951, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
 --- !u!1001 &829564356
 PrefabInstance:
@@ -37958,7 +37961,8 @@ PrefabInstance:
       propertyPath: NavPoints.Array.data[24]
       value: 
       objectReference: {fileID: 260322729}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1992442063651062951, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
 --- !u!1001 &1445247785
 PrefabInstance:
@@ -40075,7 +40079,8 @@ PrefabInstance:
       propertyPath: NavPoints.Array.data[24]
       value: 
       objectReference: {fileID: 1657834938}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1992442063651062951, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
 --- !u!1001 &1484618364
 PrefabInstance:
@@ -42829,7 +42834,8 @@ PrefabInstance:
       propertyPath: NavPoints.Array.data[24]
       value: 
       objectReference: {fileID: 1657834938}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1992442063651062951, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
 --- !u!1001 &1657772956
 PrefabInstance:
@@ -43297,6 +43303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 320478153171548730, guid: 778129aafe7c18b4cb41b5167eb71b38,
+        type: 3}
+      propertyPath: attenuationObject
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4240236107479168617, guid: 778129aafe7c18b4cb41b5167eb71b38,
         type: 3}
       propertyPath: m_Name
@@ -43367,7 +43378,8 @@ PrefabInstance:
       propertyPath: cooldown
       value: 15
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7589867516673050761, guid: 778129aafe7c18b4cb41b5167eb71b38, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 778129aafe7c18b4cb41b5167eb71b38, type: 3}
 --- !u!1001 &1683752819
 PrefabInstance:
@@ -50752,7 +50764,8 @@ PrefabInstance:
       propertyPath: NavPoints.Array.data[24]
       value: 
       objectReference: {fileID: 260322729}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1992442063651062951, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
 --- !u!1001 &2041263428
 PrefabInstance:
@@ -53895,7 +53908,8 @@ PrefabInstance:
       propertyPath: NavPoints.Array.data[24]
       value: 
       objectReference: {fileID: 260322729}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1992442063651062951, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
 --- !u!1001 &2137235466
 PrefabInstance:
@@ -54211,7 +54225,8 @@ PrefabInstance:
       propertyPath: NavPoints.Array.data[24]
       value: 
       objectReference: {fileID: 260322729}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1992442063651062951, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 834766a7fc5d2a8449036395bc6f6d60, type: 3}
 --- !u!1001 &9151551221558410912
 PrefabInstance:
