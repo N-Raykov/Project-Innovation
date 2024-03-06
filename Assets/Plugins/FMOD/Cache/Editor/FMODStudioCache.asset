@@ -53,7 +53,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2336
+  Length: 2000
 --- !u!114 &-5833770602349184015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +104,34 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 1280
+--- !u!114 &-2888940553405587559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Click
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Click
+  Guid:
+    Data1: 1191596646
+    Data2: 1106625848
+    Data3: 1136398986
+    Data4: 622589429
+  Banks:
+  - {fileID: 8205404132057255329}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 128
 --- !u!114 &-2453246952342983350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,11 +147,39 @@ MonoBehaviour:
   Path: ../Sound/Project Innovation/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638453166618947021
+  lastModified: 638453444020602773
   FileSizes:
   - Name: Desktop
-    Value: 1462
+    Value: 1512
   Exists: 1
+--- !u!114 &-1977679816901431489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/PlayerPlane/PlaneEngine/SlimPlane/SlimEngine
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/PlayerPlane/PlaneEngine/SlimPlane/SlimEngine
+  Guid:
+    Data1: 98824501
+    Data2: 1211311017
+    Data3: 603531689
+    Data4: -1528626498
+  Banks:
+  - {fileID: 8205404132057255329}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 1219668014182096687}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1741695454699987182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +195,7 @@ MonoBehaviour:
   Path: ../Sound/Project Innovation/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638452410101883258
+  lastModified: 638453444021174926
   FileSizes:
   - Name: Desktop
     Value: 4525152
@@ -160,7 +215,7 @@ MonoBehaviour:
   Path: ../Sound/Project Innovation/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638453166618881850
+  lastModified: 638453444020563763
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -206,7 +261,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -2453246952342983350}
-  - {fileID: 5407328461825681440}
   - {fileID: -1510858211736950155}
   - {fileID: -1741695454699987182}
   - {fileID: 8205404132057255329}
@@ -221,12 +275,14 @@ MonoBehaviour:
   - {fileID: -6502155381454401237}
   - {fileID: 5238407316544372952}
   - {fileID: 3159772569474337332}
+  - {fileID: -1977679816901431489}
+  - {fileID: -2888940553405587559}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1510858211736950155}
   StringsBanks:
   - {fileID: -2453246952342983350}
-  cacheTime: 638453166621781437
+  cacheTime: 638453444025822435
   cacheVersion: 131616
 --- !u!114 &389961250762462833
 MonoBehaviour:
@@ -248,7 +304,7 @@ MonoBehaviour:
     Data4: -1272181578
   Banks:
   - {fileID: 8205404132057255329}
-  IsStream: 0
+  IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
@@ -256,6 +312,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1219668014182096687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SlimEngine/RPM
+  m_EditorClassIdentifier: 
+  Name: RPM
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1884473626
+    data2: 1476081486
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &2099365223019641243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,19 +377,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/PlayerPlane/TakeDamage/TakeDamage
   Guid:
-    Data1: 1595732130
-    Data2: 1264010717
-    Data3: -2043403092
-    Data4: -1543439166
+    Data1: -1407099383
+    Data2: 1171778600
+    Data3: 1300664715
+    Data4: -664034951
   Banks:
   - {fileID: 8205404132057255329}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 640
+  Length: 190
 --- !u!114 &5238407316544372952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,10 +404,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/PlayerPlane/PlaneEngine/FatPlane/FatShooting
   Guid:
-    Data1: -1653547883
-    Data2: 1271448047
-    Data3: -507502445
-    Data4: -941849450
+    Data1: 1595732130
+    Data2: 1264010717
+    Data3: -2043403092
+    Data4: -1543439166
   Banks:
   - {fileID: 8205404132057255329}
   IsStream: 0
@@ -336,27 +416,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 920
---- !u!114 &5407328461825681440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Ambience.bank
-  m_EditorClassIdentifier: 
-  Path: ../Sound/Project Innovation/Build/Desktop/Ambience.bank
-  Name: Ambience
-  StudioPath: bank:/Ambience
-  lastModified: 638451860839043845
-  FileSizes:
-  - Name: Desktop
-    Value: 494
-  Exists: 1
+  Length: 1416
 --- !u!114 &5683666514240920298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,9 +437,9 @@ MonoBehaviour:
     Data4: -1194369679
   Banks:
   - {fileID: 8205404132057255329}
-  IsStream: 1
+  IsStream: 0
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -427,10 +487,10 @@ MonoBehaviour:
   Path: ../Sound/Project Innovation/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638453166621781437
+  lastModified: 638453444025822435
   FileSizes:
   - Name: Desktop
-    Value: 372416
+    Value: 405824
   Exists: 1
 --- !u!114 &8380142612213853627
 MonoBehaviour:
