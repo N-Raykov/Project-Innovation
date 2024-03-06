@@ -365,7 +365,8 @@ PrefabInstance:
         type: 3}
       propertyPath: characterPrefab
       value: 
-      objectReference: {fileID: 2140779998}
+      objectReference: {fileID: 4240236107479168617, guid: 778129aafe7c18b4cb41b5167eb71b38,
+        type: 3}
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: skillDescription
@@ -4127,7 +4128,8 @@ PrefabInstance:
         type: 3}
       propertyPath: characterPrefab
       value: 
-      objectReference: {fileID: 2133194574}
+      objectReference: {fileID: 4240236107479168617, guid: 7aa9465b96819994ca3f04d36a250bee,
+        type: 3}
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}
       propertyPath: skillDescription
@@ -4136,18 +4138,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac3b3f97f8f53c548a07c36c50fdb8d2, type: 3}
---- !u!1 &2133194574 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3158103012351092190, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2133194573}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2140779998 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3158103012351092190, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
-    type: 3}
-  m_PrefabInstance: {fileID: 87103025}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2141645927
 GameObject:
   m_ObjectHideFlags: 0
@@ -4410,7 +4400,7 @@ PrefabInstance:
         type: 3}
       propertyPath: characterPrefab
       value: 
-      objectReference: {fileID: 4240236107479168617, guid: 778129aafe7c18b4cb41b5167eb71b38,
+      objectReference: {fileID: 4240236107479168617, guid: c804c13f4e06726498abebd6b44c2895,
         type: 3}
     - target: {fileID: 4174159322687973799, guid: ac3b3f97f8f53c548a07c36c50fdb8d2,
         type: 3}

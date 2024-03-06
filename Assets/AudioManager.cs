@@ -7,13 +7,12 @@ using UnityEngine;
 
 
 
-public class AudioManager : MonoBehaviour
-{
-    [SerializeField] EventReference BGM;
-    [SerializeField] GameObject player;
+public class AudioManager : MonoBehaviour{
+    [SerializeField] AudioSource music;
 
-    public void PlayBGM()
-    {
-        RuntimeManager.PlayOneShot(BGM);
+    private void Start(){
+        music.Play();
+        
+        Debug.Log("playing");
     }
 }

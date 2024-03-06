@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlaneStuff.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelectScreen.unity
+    guid: 54f4b63755d537941b2a5f927b25aa0f
+  - enabled: 1
+    path: Assets/Scenes/LevelIteration2.unity
+    guid: a18df294557e8134297c76b6f52bf384
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 280b2489a6d75d949ae709345cdaa9cf, type: 2}
