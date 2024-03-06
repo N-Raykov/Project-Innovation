@@ -92,7 +92,7 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
 
         OnSpeedChange?.Invoke(currentSpeed,maxSpeed,trueMaxSpeed);
 
-        emitter.SetParameter("RPM", Mathf.Min(currentSpeed /maxSpeed,0.999f));
+        //emitter.SetParameter("RPM", Mathf.Min(currentSpeed /maxSpeed,0.999f));
 
         rb.AddForce(transform.forward*currentSpeed,ForceMode.VelocityChange);
 
