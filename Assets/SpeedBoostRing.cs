@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 
-public class SpeedBoostRing : NetworkBehaviour{
+public class SpeedBoostRing : MonoBehaviour{
 
     [SerializeField] float speedIncrease;
     PlayerNetwork lastPlayerHit;
