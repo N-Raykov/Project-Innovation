@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{ccdecda2-37bf-48ba-98a9-8d81acd9d19d}">
+		<property name="assetPath">
+			<value>248772_jet_fighter_over_mic_JetFighterPassOver PE831702.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>10.083265306122449</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{fa974294-e285-4ab9-9acf-814ec25faeb2}</destination>
+		</relationship>
+	</object>
+</objects>
