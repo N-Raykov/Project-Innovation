@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{dc4638dd-9ceb-4caa-a473-5b2d17de817b}">
+		<property name="assetPath">
+			<value>MediPlane Accel Low.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>8</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>6.9567500000000004</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{fa974294-e285-4ab9-9acf-814ec25faeb2}</destination>
+		</relationship>
+	</object>
+</objects>

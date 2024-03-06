@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d9f1b616-46d1-4447-9319-92219352fcb0}">
+		<property name="assetPath">
+			<value>Machine gun sound effects.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>9.2121088435374148</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{fa974294-e285-4ab9-9acf-814ec25faeb2}</destination>
+		</relationship>
+	</object>
+</objects>
