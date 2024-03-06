@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6351719001490147247}
   - component: {fileID: 125016153225723644}
   - component: {fileID: 237603027698962219}
+  - component: {fileID: 4804235778078806123}
   m_Layer: 6
   m_Name: Camera
   m_TagString: Untagged
@@ -119,6 +120,19 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4804235778078806123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166858462699851932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &191856755708843003
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +511,8 @@ MonoBehaviour:
   speedIndicatorNormal: {fileID: 8148576493467194191}
   speedIndicatorOverdrive: {fileID: 642496740217966548}
   speedText: {fileID: 5187618040821336587}
+  countdownText: {fileID: 0}
+  countdownDuration: 0
 --- !u!1 &1590159392608665897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,7 +1458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2616197314
+  GlobalObjectIdHash: 3262145310
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -1534,13 +1550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5253d99fc5dd7fd458d349d73434fa60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPoint: {fileID: 0}
   moveActionToUse: {fileID: -8384645465656257678, guid: 5214aefb011e524448c26800c95a5907,
     type: 3}
-  speed: 3
-  bulletPrefab: {fileID: 675641509155238383, guid: 915226d821c14c34eaf2a898b3cd437a,
-    type: 3}
-  cooldown: 1
   _ownerColliders:
   - {fileID: 8893594910139785577}
   sideTiltCurve:
@@ -1724,6 +1735,7 @@ MonoBehaviour:
   mainCameraController: {fileID: 537211279126499049}
   mainCamera: {fileID: 6351719001490147247}
   modelHolder: {fileID: 2907660113117579986}
+  skill: {fileID: 0}
 --- !u!114 &1967985665287852866
 MonoBehaviour:
   m_ObjectHideFlags: 0
