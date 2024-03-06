@@ -14,19 +14,19 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
+  m_Fog: 1
+  m_FogColor: {r: 0.7058824, g: 0.9058824, b: 0.91372555, a: 1}
+  m_FogMode: 2
+  m_FogDensity: 0.002
   m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogEnd: 490.03
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.6
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubtractiveShadowColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 255e3c68b6983a74d9154ab5ca1c72ae, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.7
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17531088, g: 0.21933752, b: 0.30165154, a: 1}
+  m_IndirectSpecularColor: {r: 0.35380432, g: 0.5309219, b: 0.52112913, a: 0.7}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13451,7 +13451,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1491478625}
   - {fileID: 842709367}
   - {fileID: 478634995}
   - {fileID: 827117943}
@@ -13462,6 +13461,7 @@ Transform:
   - {fileID: 1923473215}
   - {fileID: 150479017}
   - {fileID: 933358821}
+  - {fileID: 1491478625}
   - {fileID: 393729855}
   - {fileID: 879352273}
   - {fileID: 788667525}
@@ -13861,8 +13861,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.9
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -13904,7 +13904,7 @@ Light:
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -19227,7 +19227,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2023015747}
-  m_RootOrder: 288
+  m_RootOrder: 278
   m_LocalEulerAnglesHint: {x: 0, y: 31.737, z: 0}
 --- !u!1001 &1023723162
 PrefabInstance:
@@ -35466,7 +35466,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1066186725}
   - {fileID: 1445778665}
   - {fileID: 137311827}
   - {fileID: 1156698384}
@@ -35481,6 +35480,7 @@ Transform:
   - {fileID: 960042094}
   - {fileID: 1034311086}
   - {fileID: 846398600}
+  - {fileID: 1066186725}
   - {fileID: 328299434}
   - {fileID: 347215146}
   - {fileID: 569755114}
@@ -36423,6 +36423,7 @@ Transform:
   - {fileID: 1878441669}
   - {fileID: 1937990876}
   - {fileID: 1822553922}
+  - {fileID: 1022210156}
   - {fileID: 95383978}
   - {fileID: 1786505756}
   - {fileID: 1952626745}
@@ -36433,7 +36434,6 @@ Transform:
   - {fileID: 1088547481}
   - {fileID: 949791979}
   - {fileID: 105518662}
-  - {fileID: 1022210156}
   - {fileID: 484923043}
   - {fileID: 1961520885}
   - {fileID: 1884176618}
