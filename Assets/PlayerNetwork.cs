@@ -74,13 +74,13 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
             return;
 
         Move();
+        FinalRotation();
     }
 
     private void Update(){
         if (!isMovementEnabled)
             return;
 
-        FinalRotation();
     }
 
     private void Move(){

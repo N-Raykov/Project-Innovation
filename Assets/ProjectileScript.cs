@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileScript : MonoBehaviour {
 
     [SerializeField] float projectileSpeed;
-    [SerializeField] int damage;
+    [SerializeField] float damage;
 
     public int damageMod { get; set; }
 

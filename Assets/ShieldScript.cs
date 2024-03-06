@@ -5,7 +5,7 @@ using Unity.Netcode;
 
 public class ShieldScript : NetworkBehaviour,IDamagable{
 
-    [SerializeField] int hp;
+    [SerializeField] float hp;
 
     PlayerNetwork owner;
 
@@ -20,7 +20,7 @@ public class ShieldScript : NetworkBehaviour,IDamagable{
     }
 
     public void TakeDamage(float pDamage) {
-        hp-=(int)pDamage;
+        hp-=pDamage;
         if (hp <= 0)
             Destroy(this.gameObject);
     }

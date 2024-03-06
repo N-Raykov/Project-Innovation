@@ -125,7 +125,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4174159322687973799}
+        m_TargetAssemblyTypeName: DisplayCharacterStats, Assembly-CSharp
+        m_MethodName: ChangeCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &4174159322687973799
 MonoBehaviour:
@@ -139,6 +151,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a121b47ef84887f49bc55f2938f562bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toggle: {fileID: 3158103012351092188}
+  image: {fileID: 3158103012351092189}
+  sprite: {fileID: 21300000, guid: e96bb320f9abae34d97d5767cf805de8, type: 3}
+  damageValue: 5
+  maxSpeed: 10
+  acceleration: 4
+  attackCooldown: 2
 --- !u!1 &3158103013563951613
 GameObject:
   m_ObjectHideFlags: 0
