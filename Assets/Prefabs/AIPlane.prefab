@@ -613,45 +613,54 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 34.858475
-      inSlope: 0.00000034597645
-      outSlope: 0.00000034597645
-      tangentMode: 0
-      weightedMode: 2
-      inWeight: 0
-      outWeight: 0.882071
-    - serializedVersion: 3
-      time: 27
       value: 5
-      inSlope: -3.363715
-      outSlope: Infinity
-      tangentMode: 97
-      weightedMode: 1
-      inWeight: 0.12169565
+      inSlope: -0.52031356
+      outSlope: -0.52031356
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.104039304
+    - serializedVersion: 3
+      time: 17.5
+      value: 1.5
+      inSlope: -0.12700604
+      outSlope: -0.12700604
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11684336
       outWeight: 0
     - serializedVersion: 3
-      time: 27.5
+      time: 17.6
+      value: 0
+      inSlope: -0.309167
+      outSlope: -0.309167
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.32909396
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 18
       value: -5
-      inSlope: 0.02033184
-      outSlope: 0.02033184
+      inSlope: -0.42917386
+      outSlope: -0.42917386
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.17966227
+      outWeight: 0.17587991
     - serializedVersion: 3
-      time: 50
-      value: -25.063904
-      inSlope: -1.8947781
-      outSlope: -1.8947781
+      time: 40
+      value: -10
+      inSlope: -0.09816766
+      outSlope: -0.09816766
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.08658304
+      inWeight: 0.23799063
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxSpeed: 30
-  trueMaxSpeed: 60
+  maxSpeed: 17.5
+  trueMaxSpeed: 40
   currentSpeed: 0
   modelHolder: {fileID: 1992442063283201317}
   targetForwardDirection: {x: 0, y: 0, z: 0}
@@ -926,7 +935,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1992442064549588862}
-  - component: {fileID: 1992442064549588863}
   m_Layer: 6
   m_Name: FollowPoint
   m_TagString: Untagged
@@ -949,36 +957,6 @@ Transform:
   m_Father: {fileID: 1992442064179618333}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1992442064549588863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1992442064549588857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
 --- !u!1 &1992442064891186415
 GameObject:
   m_ObjectHideFlags: 0
