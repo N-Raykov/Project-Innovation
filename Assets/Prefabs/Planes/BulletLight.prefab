@@ -90,6 +90,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser
       objectReference: {fileID: 0}
+    - target: {fileID: 5136220382466107233, guid: 0996c44927b9e3e46bad19c68b6b6688,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5479848945103617499, guid: 0996c44927b9e3e46bad19c68b6b6688,
         type: 3}
       propertyPath: m_RootOrder

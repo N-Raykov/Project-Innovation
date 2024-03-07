@@ -906,6 +906,7 @@ GameObject:
   - component: {fileID: 8333688207773115703}
   - component: {fileID: 2806550153615434742}
   - component: {fileID: 7145784337652028268}
+  - component: {fileID: 2780379718151476778}
   m_Layer: 6
   m_Name: PlaneMedium
   m_TagString: Untagged
@@ -1225,6 +1226,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &2780379718151476778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240236107479168617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846f013c644700d4fb74957bdd21b246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 5dfead84dfbc9244581d73a4c7814e97, type: 2}
 --- !u!1 &4412613418237412257
 GameObject:
   m_ObjectHideFlags: 0

@@ -90,6 +90,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet1
       objectReference: {fileID: 0}
+    - target: {fileID: 7203330776265102591, guid: 6f622e01337dac544a79ab06dd85e7de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7547064862134488645, guid: 6f622e01337dac544a79ab06dd85e7de,
         type: 3}
       propertyPath: m_RootOrder

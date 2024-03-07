@@ -90,6 +90,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletFat
       objectReference: {fileID: 0}
+    - target: {fileID: 4846119174209642756, guid: ac65bfe23c5d28c44a567fdf504d5c4f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5191259600208919486, guid: ac65bfe23c5d28c44a567fdf504d5c4f,
         type: 3}
       propertyPath: m_RootOrder
