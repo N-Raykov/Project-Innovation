@@ -12,11 +12,14 @@ public class UIManager : MonoBehaviour{
     [Header("Player Speed")]
     [SerializeField] RectTransform speedIndicatorNormal;
     [SerializeField] RectTransform speedIndicatorOverdrive;
-    [SerializeField] TextMeshProUGUI speedText;
 
     [Header("Round Start Countdown")]
     [SerializeField] TextMeshProUGUI countdownText;
     [SerializeField] int countdownDuration;
+
+    [Header("Skill")]
+    [SerializeField] RectTransform SkillCooldownIndicator;
+
 
 
     private void Awake(){
@@ -35,7 +38,6 @@ public class UIManager : MonoBehaviour{
     void UpdateSpeedIndicator(float pCurrentSpeed,float pMaxSpeed,float pTrueMaxSpeed) {
         float cappedSpeed = Mathf.Min(pCurrentSpeed, pMaxSpeed);
         speedIndicatorNormal.localScale = new Vector3(cappedSpeed/pMaxSpeed, speedIndicatorNormal.localScale.y, speedIndicatorNormal.localScale.z);
-        speedText.text = pCurrentSpeed.ToString();
 
         if (pCurrentSpeed > pMaxSpeed) {
             float speedDifMaxTrueMax = pTrueMaxSpeed - pMaxSpeed;
