@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3387330897570115755}
   - component: {fileID: 4800564940321001270}
   - component: {fileID: 4132576603550413085}
+  - component: {fileID: -2438792453635782406}
   m_Layer: 0
   m_Name: RockFormation03
   m_TagString: Untagged
@@ -111,3 +112,34 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8907757473011522176, guid: 57a762f1b39e613479bc002ebebcda29, type: 3}
+--- !u!114 &-2438792453635782406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3747782076157432190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  EventReference:
+    Guid:
+      Data1: -1276927454
+      Data2: 1092541710
+      Data3: -491921500
+      Data4: 1490119896
+    Path: event:/SFX/PlayerPlane/Collision/Crash
+  Event: 
+  PlayEvent: 7
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

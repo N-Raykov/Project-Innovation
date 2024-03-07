@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour{
 
     [Header("Round Start Countdown")]
     [SerializeField] TextMeshProUGUI countdownText;
-    [SerializeField] int countdownDuration;
 
     [Header("Skill")]
     [SerializeField] RectTransform skillCooldownIndicator;
@@ -42,7 +41,9 @@ public class UIManager : MonoBehaviour{
     }
 
     private void Start(){
-        StartCountdown(countdownDuration);
+
+        targetPlayer.OnRespawn += StartRespawnCountdown;
+        //StartCountdown(countdownDuration);
     }
 
     void UpdateSpeedIndicator(float pCurrentSpeed,float pMaxSpeed,float pTrueMaxSpeed) {
@@ -58,11 +59,17 @@ public class UIManager : MonoBehaviour{
         }
     }
 
+    void StartRespawnCountdown() {
+        StartCoroutine(CountdownCoroutine(LevelManager.instance.respawnDuration));
+    }
+
     public void StartCountdown(int duration) {
         StartCoroutine(CountdownCoroutine(duration));
     }
 
     IEnumerator CountdownCoroutine(int duration) {
+
+        targetPlayer.isMovementEnabled = false;
 
         while (duration >= 0) {
             countdownText.text = duration.ToString();

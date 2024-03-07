@@ -52,18 +52,25 @@ public class AI_Test : MonoBehaviour, IDamagable
 
     Vector3 rotation;
 
+    public bool isMovementEnabled { get; set; }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        isMovementEnabled = false;
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate(){
+        if (!isMovementEnabled)
+            return;
+
         Move();
     }
 
-    private void Update()
-    {
+    private void Update(){
+        if (!isMovementEnabled)
+            return;
+
         FinalRotation();
 
         targetForwardDirection = (NavPoints[pointIndex].position + targetOffset) - transform.position;
@@ -134,4 +141,5 @@ public class AI_Test : MonoBehaviour, IDamagable
             targetOffset = new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2));
         }
     }
+
 }

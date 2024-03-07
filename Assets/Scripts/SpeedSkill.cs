@@ -9,6 +9,8 @@ public class SpeedSkill : SkillBase{
     [SerializeField] float speedIncrease;
 
     public override void UseSkill(){
+        if (!player.isMovementEnabled)
+            return;
 
         if (Time.time - lastUseTime > cooldown){
             player.AddSpeed(speedIncrease);
