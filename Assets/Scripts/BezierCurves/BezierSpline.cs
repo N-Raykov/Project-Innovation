@@ -144,6 +144,7 @@ public class BezierSpline : MonoBehaviour {
 		branchObject.transform.SetParent(this.transform.parent);
 		branchObject.transform.position = points[index];
 		BezierSpline branchSpline = branchObject.AddComponent<BezierSpline>();
+		LineRenderer linerenderer = branchObject.AddComponent<LineRenderer>();
 
 		if (splineNetwork != null)
 		{
@@ -262,7 +263,7 @@ public class BezierSpline : MonoBehaviour {
 	{
 		float shortestDistance = 10000f;
 		Vector3 closestPoint = GetPoint(0f);
-		for (float t = 0; t <= 1; t += 0.01f)
+		for (float t = 0; t <= 1; t += 0.001f)
 		{
 			Vector3 splinePoint = GetPoint(t);
 			float distance = Vector3.Distance(splinePoint, point);

@@ -17,6 +17,11 @@ public class SplineWalker : MonoBehaviour
 
     private void Start()
     {
+        if (spline == null)
+        {
+            Debug.LogWarning("Walker is not assigned to a spline");
+            spline = null;
+        }
         splineLength = spline.GetLength();
         splineNetwork = spline.GetComponentInParent<SplineNetwork>();
     }

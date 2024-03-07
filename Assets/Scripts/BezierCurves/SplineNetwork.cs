@@ -7,11 +7,6 @@ public class SplineNetwork : MonoBehaviour
     [SerializeField] private List<SplitPoint> splitPoints = new List<SplitPoint>();
     [SerializeField] public List<Connection> connections = new List<Connection>();
 
-    private void Start()
-    {
-        
-    }
-
     private static SplineNetwork instance;
     public static SplineNetwork Instance
     {

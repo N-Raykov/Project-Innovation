@@ -1,33 +1,44 @@
+using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.UI;
 
 public class SplineMap : MonoBehaviour
 {
-    [SerializeField] BezierSpline spline;
     [SerializeField] int mapPrecision = 10;
-    
-    private LineRenderer lineRenderer;
+    private List<GameObject> children = new List<GameObject>();
 
     void Start()
     {
+        PopulateChildren();
         ProjectTrack();
+    }
+
+    void PopulateChildren()
+    {
+        foreach (Transform child in transform)
+        {
+            children.Add(child.gameObject);
+        }
     }
 
     void ProjectTrack()
     {
-        lineRenderer = GetComponent<LineRenderer>();
-
-        Vector3 point = spline.GetPoint(0f);
-        int steps = mapPrecision * spline.CurveCount;
-
-        lineRenderer.positionCount = steps + 1;
-
-        for (int i = 0; i <= steps; i++)
+        foreach (GameObject child in children)
         {
-            point = spline.GetPoint(i / (float)steps);
-            lineRenderer.SetPosition(i, new Vector3(point.x, point.y, point.z));
-        }
+            LineRenderer lineRenderer = child.GetComponent<LineRenderer>();
+            BezierSpline spline = child.GetComponent<BezierSpline>();
 
-        lineRenderer.SetPosition(steps, lineRenderer.GetPosition(2));
+            Vector3 point = spline.GetPoint(0f);
+            int steps = mapPrecision * spline.CurveCount;
+
+            lineRenderer.positionCount = steps + 1;
+
+            for (int i = 0; i <= steps; i++)
+            {
+                point = spline.GetPoint(i / (float)steps);
+                lineRenderer.SetPosition(i, new Vector3(point.x, 4, point.z));
+            }
+        }
     }
 }
