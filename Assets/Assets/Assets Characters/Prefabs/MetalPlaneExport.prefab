@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3492542223940662891}
   - component: {fileID: 565161280600947150}
   - component: {fileID: 2320247132589051140}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MetalPlaneExport
   m_TagString: Untagged
   m_Icon: {fileID: 0}

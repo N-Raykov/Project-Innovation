@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7271480862673392627}
   - component: {fileID: 6000666917830777942}
   - component: {fileID: 8404369521710540956}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FuturePlaneExport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
