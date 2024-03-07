@@ -10,21 +10,20 @@ public class BasicAttack : Attacker{
     }
 
     void Update() {
+        DecreaseOverheatAmount();
         Shoot();
     }
 
     public override void Shoot() {
-        if (canShoot && Time.time - lastShotTime >= cooldown) {
+        if (!isOverheated && canShoot && Time.time - lastShotTime >= cooldown) {
             ShootBulletServerRpc();
+            IncreaseOverheatAmount();
             lastShotTime = Time.time;
             
         }
     }
 
     private void ShootBulletServerRpc() {
-
-        Debug.Log("shooting");
-
         Vector3 target;
 
         RaycastHit hit;
