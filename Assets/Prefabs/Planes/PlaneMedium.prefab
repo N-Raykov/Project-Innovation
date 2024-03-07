@@ -1051,11 +1051,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 44981851
-      Data2: 1300163742
-      Data3: 1447689344
-      Data4: -1497245016
-    Path: event:/SFX/PlayerPlane/PlaneEngine/FatPlane/FatEngine
+      Data1: -1438949313
+      Data2: 1238549663
+      Data3: -1309193315
+      Data4: -1272181578
+    Path: event:/SFX/PlayerPlane/PlaneEngine/MediumPlane/MediumEngine
   Event: 
   PlayEvent: 1
   StopEvent: 2
