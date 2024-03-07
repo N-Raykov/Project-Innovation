@@ -6,11 +6,11 @@ using UnityEngine;
 public class Connection
 {
     public BezierSpline main;
-    public BezierSpline branch;
+    public BezierSpline connection;
 
-    public Connection(BezierSpline pMain, BezierSpline pBranch)
+    public Connection(BezierSpline pMain, BezierSpline pConnection)
     {
         this.main = pMain;
-        this.branch = pBranch;
+        this.connection = pConnection;
     }
 }

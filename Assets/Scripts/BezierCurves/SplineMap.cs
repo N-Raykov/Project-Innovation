@@ -37,7 +37,7 @@ public class SplineMap : MonoBehaviour
             for (int i = 0; i <= steps; i++)
             {
                 point = spline.GetPoint(i / (float)steps);
-                lineRenderer.SetPosition(i, new Vector3(point.x, 4, point.z));
+                lineRenderer.SetPosition(i, new Vector3(point.x, -44, point.z));
             }
         }
     }

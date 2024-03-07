@@ -22,7 +22,7 @@ public class SplineNetwork : MonoBehaviour
 
     public void AddConnection(BezierSpline main, BezierSpline branch)
     {
-        if (!connections.Any(c => c.main == main && c.branch == branch))
+        if (!connections.Any(c => c.main == main && c.connection == branch))
         {
             connections.Add(new Connection(main, branch));
         }
@@ -34,7 +34,7 @@ public class SplineNetwork : MonoBehaviour
 
     public void DisconnectSplines(BezierSpline main, BezierSpline branch)
     {
-        Connection connectionToRemove = connections.FirstOrDefault(c => c.main == main && c.branch == branch);
+        Connection connectionToRemove = connections.FirstOrDefault(c => c.main == main && c.connection == branch);
         if (connectionToRemove != null)
         {
             connections.Remove(connectionToRemove);
@@ -51,7 +51,7 @@ public class SplineNetwork : MonoBehaviour
         {
             if (connection.main == spline)
             {
-                connectedSpline = connection.branch;
+                connectedSpline = connection.connection;
                 return true;
             }
         }
@@ -96,7 +96,12 @@ public class SplineNetwork : MonoBehaviour
         int indexToRemove = splitPoints.FindIndex(point => point.controlPointIndex == controlPointIndex);
         if (indexToRemove != -1)
         {
+            BezierSpline connectedSpline;
             SplitPoint splitPoint = splitPoints[indexToRemove];
+            if (TryGetConnectedSpline(splitPoints[indexToRemove].spline, out connectedSpline))
+            {
+                connections.RemoveAt(indexToRemove);
+            }
             splitPoints.RemoveAt(indexToRemove);
             DestroyImmediate(splitPoint.spline.gameObject);
             return true;
