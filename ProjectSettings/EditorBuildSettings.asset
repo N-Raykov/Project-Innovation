@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PlaneStuff.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5ebf8f499eeeacf4bb53bdc026bca20e
+  - enabled: 1
     path: Assets/Scenes/CharacterSelectScreen.unity
     guid: 54f4b63755d537941b2a5f927b25aa0f
   - enabled: 0
