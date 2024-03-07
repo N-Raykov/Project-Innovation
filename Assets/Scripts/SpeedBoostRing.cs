@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 
+
 public class SpeedBoostRing : MonoBehaviour{
 
     [SerializeField] float speedIncrease;
     PlayerNetwork lastPlayerHit;
     float lastHitTime = -1000000;
     float timeUntilReset = 5;
+    FMODUnity.StudioEventEmitter eventEmitterRef;
 
+    void Awake()
+    {
+        eventEmitterRef = GetComponent<FMODUnity.StudioEventEmitter>();
+    }
 
     private void OnTriggerEnter(Collider other){
         Debug.Log(other.name);
@@ -20,6 +26,7 @@ public class SpeedBoostRing : MonoBehaviour{
         if (player != null && player != lastPlayerHit) {
             player.AddSpeed(speedIncrease);
             lastPlayerHit = player;
+            eventEmitterRef.Play();
         }
         else if (ai_controller != null) {
             ai_controller.AddSpeed(speedIncrease);
