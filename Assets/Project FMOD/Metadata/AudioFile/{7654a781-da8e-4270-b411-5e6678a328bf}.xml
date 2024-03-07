@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{7654a781-da8e-4270-b411-5e6678a328bf}">
+		<property name="assetPath">
+			<value>Bullet Hit Metals - Sound effect(HD).mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.1534693877551021</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{fa974294-e285-4ab9-9acf-814ec25faeb2}</destination>
+		</relationship>
+	</object>
+</objects>
