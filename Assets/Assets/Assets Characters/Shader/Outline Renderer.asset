@@ -20,7 +20,7 @@ MonoBehaviour:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
-        m_Bits: 8
+        m_Bits: 192
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 46eec40539b47644faf735fae1b10c43, type: 2}
     overrideMaterialPassIndex: 0
@@ -39,6 +39,25 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
+--- !u!114 &-3108485012250460919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9644e80930e499c46840117eee791d49, type: 3}
+  m_Name: BlitRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    Event: 400
+    blitMaterial: {fileID: 2100000, guid: 5dfead84dfbc9244581d73a4c7814e97, type: 2}
+    blitMaterialPassIndex: 0
+    destination: 0
+    textureId: _BlitPassTexture
 --- !u!114 &-1934017459489158866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +115,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -5803602388476679511}
   - {fileID: -1934017459489158866}
-  m_RendererFeatureMap: a92a3d61607675af2ec9be115efd28e5
+  - {fileID: -3108485012250460919}
+  m_RendererFeatureMap: a92a3d61607675af2ec9be115efd28e5097d2fcf5971dcd4
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -118,10 +138,10 @@ MonoBehaviour:
   m_AssetVersion: 2
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 4294967295
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 4294967295
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0

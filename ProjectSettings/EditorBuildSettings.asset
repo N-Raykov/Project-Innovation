@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 13c6a02f03a8bf54bb7a223434cd4c80
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
-    guid: 72a63985b056157499a3b44c511f38db
+    guid: fc67d9b1f53e61b448d7264a237edd45
   - enabled: 0
     path: Assets/Scenes/SampleScene 1.unity
     guid: 92331da212ae62345ae225a43f03f2f1
@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/CharacterSelectScreen.unity
     guid: 54f4b63755d537941b2a5f927b25aa0f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: a18df294557e8134297c76b6f52bf384
   - enabled: 1
