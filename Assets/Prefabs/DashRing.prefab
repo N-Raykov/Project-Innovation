@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2541053002097163237}
   - component: {fileID: 3783647796671965026}
   - component: {fileID: 3783647796671965027}
-  - component: {fileID: 6882473926082483812}
+  - component: {fileID: 4918884518902344480}
   m_Layer: 0
   m_Name: DashRing
   m_TagString: Untagged
@@ -97,7 +97,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.5, y: 0.4330128, z: 4.4999995}
+  m_Size: {x: 8.76, y: 0.4330128, z: 10.38}
   m_Center: {x: 0, y: 0.000015258789, z: 0.00000011920929}
 --- !u!114 &3783647796671965027
 MonoBehaviour:
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedIncrease: 10
---- !u!114 &6882473926082483812
+--- !u!114 &4918884518902344480
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
+  CollisionTag: Player
   EventReference:
     Guid:
       Data1: -770644084
@@ -133,8 +133,8 @@ MonoBehaviour:
       Data4: 1506553379
     Path: event:/SFX/Boost/Boost
   Event: 
-  PlayEvent: 1
-  StopEvent: 2
+  PlayEvent: 3
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
