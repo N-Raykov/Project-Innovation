@@ -13,4 +13,9 @@ public abstract class SkillBase : MonoBehaviour{
 
     public abstract void UseSkill();
 
+    public float ReturnSkillRechargeTime() { //from 0 to 1
+
+        return (Mathf.Min((Time.time-lastUseTime)/cooldown, 1f));
+    
+    }
 }

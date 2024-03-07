@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 675641509155238383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6220892, y: 2.24, z: -2.4347897}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3474225991443140339}
   m_Father: {fileID: 0}
@@ -89,6 +89,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BulletFat
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846119174209642756, guid: ac65bfe23c5d28c44a567fdf504d5c4f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5191259600208919486, guid: ac65bfe23c5d28c44a567fdf504d5c4f,
         type: 3}

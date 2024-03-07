@@ -30,7 +30,7 @@ public class ProjectileScript : MonoBehaviour {
     }
 
     private void OnCollisionEnter(Collision collision){
-        IDamagable damagable= collision.transform.root.GetComponent<IDamagable>();
+        IDamagable damagable = collision.transform.root.GetComponent<IDamagable>();
 
         if (damagable!=null) {
             damagable.TakeDamage(damage+damageMod);

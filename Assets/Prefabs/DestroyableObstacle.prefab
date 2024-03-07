@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2564866551082002524}
   - component: {fileID: 2564866551082002527}
   - component: {fileID: 3712432978538345777}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DestroyableObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
