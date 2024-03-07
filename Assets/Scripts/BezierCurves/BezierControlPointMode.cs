@@ -1,5 +1,6 @@
 ﻿public enum BezierControlPointMode {
 	Free,
 	Aligned,
-	Mirrored
+	Mirrored,
+	Split
 }
