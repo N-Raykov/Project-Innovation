@@ -259,11 +259,12 @@ public class BezierSpline : MonoBehaviour {
 		return transform.TransformPoint(Bezier.GetPoint(points[i], points[i + 1], points[i + 2], points[i + 3], t));
 	}
 
-	public Vector3 PointOnTrack(Vector3 point)
+	public Vector3 PointOnTrack(Vector3 point, out float progress)
 	{
+		progress = 0f;
 		float shortestDistance = 10000f;
 		Vector3 closestPoint = GetPoint(0f);
-		for (float t = 0; t <= 1; t += 0.001f)
+		for (float t = 0; t <= 1; t += 0.01f)
 		{
 			Vector3 splinePoint = GetPoint(t);
 			float distance = Vector3.Distance(splinePoint, point);
@@ -271,10 +272,18 @@ public class BezierSpline : MonoBehaviour {
 			{
 				shortestDistance = distance;
 				closestPoint = splinePoint;
+				progress = t;
 			}
 
 		}
+
 		return closestPoint;
+	}
+
+	public Vector3 PointOnTrack(Vector3 point)
+	{
+		float progress;
+		return PointOnTrack(point, out progress);
 	}
 
 	public float GetTime(Vector3 point)

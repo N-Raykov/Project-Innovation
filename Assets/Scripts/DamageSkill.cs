@@ -9,6 +9,9 @@ public class DamageSkill : SkillBase{
     [SerializeField] Attacker attacker;
     [SerializeField] float damageIncrease;
 
+    [Header("Visuals")]
+    [SerializeField] GameObject prefab;
+    [SerializeField] Transform spawnPoint;
 
     public override void UseSkill() {
         if (!player.isMovementEnabled)
@@ -17,6 +20,9 @@ public class DamageSkill : SkillBase{
 
         if (Time.time - lastUseTime > cooldown){
             StartCoroutine(ChangeDamage());
+
+            GameObject p = Instantiate(prefab,spawnPoint);
+            Destroy(p, duration);
             lastUseTime = Time.time;
         }
 

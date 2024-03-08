@@ -8,12 +8,19 @@ public class SpeedSkill : SkillBase{
     [SerializeField] PlayerNetwork player;
     [SerializeField] float speedIncrease;
 
+    [Header("Visuals")]
+    [SerializeField] Transform boostSpawnPoint;
+    [SerializeField] float boostLifetime;
+    [SerializeField] GameObject boostPrefab;
+
     public override void UseSkill(){
         if (!player.isMovementEnabled)
             return;
 
         if (Time.time - lastUseTime > cooldown){
             player.AddSpeed(speedIncrease);
+            GameObject boost = Instantiate(boostPrefab,boostSpawnPoint);
+            Destroy(boost, boostLifetime);
             lastUseTime = Time.time;
         }
 

@@ -147,10 +147,12 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
         mainCameraController.PreviousStateIsValid = false;
 
         modelHolderRotation = Vector3.zero;
-        rotation = lastCheckpoint.transform.localEulerAngles;
-        transform.position = lastCheckpoint.transform.position;
         currentSpeed = 0;
 
+        Vector3 forward=Vector3.zero;
+
+        transform.position = LevelManager.instance.RequestNearestPoint(transform.position,out forward);
+        transform.forward = forward;
 
 
         //OnRespawn?.Invoke();

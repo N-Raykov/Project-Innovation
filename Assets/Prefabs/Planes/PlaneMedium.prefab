@@ -1193,10 +1193,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 25
-  duration: 5
+  duration: 7.5
   player: {fileID: 7243495395596176062}
   attacker: {fileID: 8333688207773115703}
   damageIncrease: 0.35
+  prefab: {fileID: 1376935759129756498, guid: 43f91809db198924482229d3dec67d77, type: 3}
+  spawnPoint: {fileID: 4661947700912372903}
 --- !u!114 &7145784337652028268
 MonoBehaviour:
   m_ObjectHideFlags: 0

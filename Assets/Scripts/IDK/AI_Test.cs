@@ -75,16 +75,12 @@ public class AI_Test : MonoBehaviour, IDamagable
 
         targetForwardDirection = (NavPoints[pointIndex].position + targetOffset) - transform.position;
         targetForwardDirection.Normalize();
-
-        // print("Current target point: " + NavPoints[pointIndex].name.ToString());
-        // print("Next point: " + pointIndex.ToString());
-        
-        // print("Target Direction: " + targetForwardDirection.ToString());
         
     }
 
     private void Move()
     {
+
         rb.velocity = Vector3.zero;
         currentSpeed += accelerationCurve.Evaluate(currentSpeed) * Time.fixedDeltaTime;
         rb.AddForce(transform.forward * currentSpeed, ForceMode.VelocityChange);
