@@ -6,12 +6,6 @@ public class Checkpoint : MonoBehaviour{
 
     private void OnTriggerEnter(Collider other){
 
-        PlayerNetwork player = other.transform.root.GetComponent<PlayerNetwork>();
-
-        if (player) {
-            player.lastCheckpoint = this;
-        }
-
     }
 
 }

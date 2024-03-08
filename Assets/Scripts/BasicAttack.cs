@@ -15,6 +15,9 @@ public class BasicAttack : Attacker{
     }
 
     public override void Shoot() {
+        if (!playerOwner.isMovementEnabled)
+            return;
+
         if (!isOverheated && canShoot && Time.time - lastShotTime >= cooldown) {
             ShootBulletServerRpc();
             IncreaseOverheatAmount();

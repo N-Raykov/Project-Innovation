@@ -18,6 +18,8 @@ public class ZoomSpeedEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        material.SetFloat("_EffectOpacity", playerScript.currentSpeed / 50.0f);
+        if (Time.timeScale != 0f) {
+            material.SetFloat("_EffectOpacity", playerScript.currentSpeed / 50.0f);
+        }
     }
 }
