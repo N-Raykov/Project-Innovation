@@ -8,7 +8,7 @@ public class SplineWalker : MonoBehaviour
     [SerializeField] private SplineWalkerMode mode;
     [SerializeField] float chanceToSwitchSpline = 0.5f;
 
-    private float progress;
+    protected float progress;
     private bool goingForward = true;
     private float splineLength;
     private SplineNetwork splineNetwork;
@@ -26,7 +26,7 @@ public class SplineWalker : MonoBehaviour
         splineNetwork = spline.GetComponentInParent<SplineNetwork>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         float step = speed / splineLength;
 

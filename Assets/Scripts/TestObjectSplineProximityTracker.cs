@@ -6,6 +6,7 @@ public class TestObjectSplineProximityTracker : MonoBehaviour
 {
     [SerializeField] BezierSpline spline;
     [SerializeField] GameObject objectToTrack;
+    [SerializeField] bool tracksPlayer;
 
     private void Start()
     {
@@ -18,7 +19,11 @@ public class TestObjectSplineProximityTracker : MonoBehaviour
 
     void Update()
     {
+        if (tracksPlayer == true && objectToTrack == null)
+        {
+            objectToTrack = GameObject.FindGameObjectWithTag("Player");
+        }
         Vector3 pointOnTrack = spline.PointOnTrack(objectToTrack.transform.position);
-        transform.position = new Vector3(pointOnTrack.x, 4, pointOnTrack.z);
+        transform.position = new Vector3(pointOnTrack.x, -40, pointOnTrack.z);
     }
 }

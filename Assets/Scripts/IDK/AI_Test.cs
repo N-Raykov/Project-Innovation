@@ -36,7 +36,8 @@ public class AI_Test : MonoBehaviour, IDamagable
     Vector3 modelHolderRotation = Vector3.zero;
 
     [SerializeField] Vector3 targetForwardDirection;
-    [SerializeField] Transform[] NavPoints;
+    [SerializeField] GameObject trailBlazer;
+    [SerializeField] public List<Transform> NavPoints = new List<Transform>();
     [SerializeField] int pointIndex = 0;
 
     Vector3 targetOffset;
@@ -125,7 +126,7 @@ public class AI_Test : MonoBehaviour, IDamagable
 
     void OnTriggerEnter(Collider other) {
         if (other.tag == "NavPoint" && other.transform == NavPoints[pointIndex].transform) {
-            if (pointIndex >= NavPoints.Length - 1) {
+            if (pointIndex >= NavPoints.Count - 1) {
                 pointIndex = 0;
             } else {
                 pointIndex++;
