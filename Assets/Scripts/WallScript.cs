@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WallScript : MonoBehaviour{
 
-
     private void OnCollisionEnter(Collision collision){
 
         PlayerNetwork player = collision.transform.root.GetComponent<PlayerNetwork>();

@@ -10,6 +10,7 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
 
 
     public Action<float,float,float> OnSpeedChange;
+    public Action OnRespawn;
 
     [SerializeField] InputActionReference moveActionToUse;
 
@@ -54,6 +55,10 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
     [Header("Audio")]
     [SerializeField] StudioEventEmitter emitter;
 
+    [Header("Explosion")]
+    [SerializeField] GameObject explosionPrefab;
+    [SerializeField] float explosionLifetime;
+
 
     public Checkpoint lastCheckpoint { get; set; }
 
@@ -92,7 +97,7 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
 
         OnSpeedChange?.Invoke(currentSpeed,maxSpeed,trueMaxSpeed);
 
-        //emitter.SetParameter("RPM", Mathf.Min(currentSpeed /maxSpeed,0.999f));
+        emitter.SetParameter("RPM", Mathf.Min(currentSpeed /maxSpeed,0.999f));
 
         rb.AddForce(transform.forward*currentSpeed,ForceMode.VelocityChange);
 
@@ -133,12 +138,24 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
     }
 
     public void Respawn() {
+
+        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        explosion.GetComponent<AudioSource>().Play();
+
+        Destroy(explosion, explosionLifetime);
+
         mainCameraController.PreviousStateIsValid = false;
 
         modelHolderRotation = Vector3.zero;
-        rotation = lastCheckpoint.transform.localEulerAngles;
-        transform.position = lastCheckpoint.transform.position;
         currentSpeed = 0;
+
+        Vector3 forward=Vector3.zero;
+
+        transform.position = LevelManager.instance.RequestNearestPoint(transform.position,out forward);
+        transform.forward = forward;
+
+
+        //OnRespawn?.Invoke();
 
     }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 675641509155238368}
   - component: {fileID: -997125311025216735}
   - component: {fileID: 4090243023517553115}
+  - component: {fileID: -40486521434446494}
   m_Layer: 7
   m_Name: BulletMedium
   m_TagString: Untagged
@@ -78,6 +79,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.25, z: 1.2}
   m_Center: {x: 0, y: 0, z: -0.03}
+--- !u!114 &-40486521434446494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675641509155238383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1899418253
+      Data2: 1199053407
+      Data3: 61746592
+      Data4: -1194369679
+    Path: event:/SFX/PlayerPlane/PlaneEngine/MediumPlane/MediumShooting
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &4336200805209757787
 PrefabInstance:
   m_ObjectHideFlags: 0

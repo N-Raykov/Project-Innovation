@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3632569575882339555}
   - component: {fileID: 4412807527325755513}
   - component: {fileID: -3146850611527659010}
+  - component: {fileID: 253769819313282308}
   m_Layer: 0
   m_Name: Cliff
   m_TagString: Untagged
@@ -111,3 +112,34 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6281424698479989189, guid: 1df563f29e572dd40bfc3490271c0f7e, type: 3}
+--- !u!114 &253769819313282308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984064354266387766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  EventReference:
+    Guid:
+      Data1: -1276927454
+      Data2: 1092541710
+      Data3: -491921500
+      Data4: 1490119896
+    Path: event:/SFX/PlayerPlane/Collision/Crash
+  Event: 
+  PlayEvent: 7
+  StopEvent: 8
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
