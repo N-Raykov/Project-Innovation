@@ -132,7 +132,9 @@ public class AI_Test : MonoBehaviour, IDamagable
             if (pointIndex >= NavPoints.Count - 1) {
                 pointIndex = 0;
             } else {
-                pointIndex++;
+                Destroy(NavPoints[0].gameObject, 1);
+                NavPoints.RemoveAt(0);
+                
             }
 
             targetOffset = new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2));
