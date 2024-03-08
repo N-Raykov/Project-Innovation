@@ -264,7 +264,7 @@ public class BezierSpline : MonoBehaviour {
 		progress = 0f;
 		float shortestDistance = 10000f;
 		Vector3 closestPoint = GetPoint(0f);
-		for (float t = 0; t <= 1; t += 0.01f)
+		for (float t = 0; t <= 1; t += 0.001f)
 		{
 			Vector3 splinePoint = GetPoint(t);
 			float distance = Vector3.Distance(splinePoint, point);
