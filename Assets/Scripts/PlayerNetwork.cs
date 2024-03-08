@@ -60,8 +60,6 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
     [SerializeField] float explosionLifetime;
 
 
-    public Checkpoint lastCheckpoint { get; set; }
-
     Rigidbody rb;
     float lastShotTime = -1000000;
 

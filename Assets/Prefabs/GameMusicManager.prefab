@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenesAllowedToExistIn:
   - LevelIteration2
+  - LoseScreen
+  - WinScreen
   audioSource: {fileID: 5868625548407720954}
 --- !u!82 &5868625548407720954
 AudioSource:

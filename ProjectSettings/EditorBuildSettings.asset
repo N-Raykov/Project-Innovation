@@ -5,27 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/LobbyScene.unity
-    guid: 13c6a02f03a8bf54bb7a223434cd4c80
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: fc67d9b1f53e61b448d7264a237edd45
-  - enabled: 0
-    path: Assets/Scenes/SampleScene 1.unity
-    guid: 92331da212ae62345ae225a43f03f2f1
-  - enabled: 0
-    path: Assets/Scenes/PlaneStuff.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5ebf8f499eeeacf4bb53bdc026bca20e
   - enabled: 1
     path: Assets/Scenes/CharacterSelectScreen.unity
     guid: 54f4b63755d537941b2a5f927b25aa0f
-  - enabled: 0
-    path: Assets/Scenes/TestScene.unity
-    guid: a18df294557e8134297c76b6f52bf384
   - enabled: 1
     path: Assets/Scenes/LevelIteration2.unity
     guid: 2c65fae5893f14e48abf6c72ecdb7425
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 0e0feac5388c3334f899ffd6abbef006
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: 0c22ae53740bf934baa238932d0aeb0e
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 280b2489a6d75d949ae709345cdaa9cf, type: 2}
