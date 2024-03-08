@@ -27038,7 +27038,7 @@ MonoBehaviour:
   countdownDuration: 5
   _respawnDuration: 2
   splineNetwork: {fileID: 1067930969}
-  _lapCountToWin: 0
+  _lapCountToWin: 1
 --- !u!4 &1386301480
 Transform:
   m_ObjectHideFlags: 0

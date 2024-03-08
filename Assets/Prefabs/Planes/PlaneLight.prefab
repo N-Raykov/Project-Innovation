@@ -895,7 +895,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 77.1
+  m_fontSize: 77.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1816,6 +1816,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   timeToStartDissapearing: 1
   timeUntilFullDissapear: 1.75
+  lapText: {fileID: 8089745787447710386}
 --- !u!1 &7094471517183818307
 GameObject:
   m_ObjectHideFlags: 0
@@ -2220,7 +2221,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.1
+  m_fontSize: 70.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2469,7 +2470,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 166
+  m_fontSize: 165.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

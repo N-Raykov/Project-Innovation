@@ -30,6 +30,9 @@ public class UIManager : MonoBehaviour{
     [SerializeField] float timeToStartDissapearing;
     [SerializeField] float timeUntilFullDissapear;
 
+    [Header("Laps")]
+    [SerializeField] TextMeshProUGUI lapText;
+
 
     private void Awake(){
 
@@ -43,7 +46,6 @@ public class UIManager : MonoBehaviour{
     private void Start(){
 
         targetPlayer.OnRespawn += StartRespawnCountdown;
-        //StartCountdown(countdownDuration);
     }
 
     void UpdateSpeedIndicator(float pCurrentSpeed,float pMaxSpeed,float pTrueMaxSpeed) {
@@ -85,6 +87,7 @@ public class UIManager : MonoBehaviour{
     private void Update(){
         UpdateSkillCooldown();
         UpdateShootingOverheat();
+        UpdateLapText();
     }
 
     void UpdateSkillCooldown() {
@@ -107,6 +110,10 @@ public class UIManager : MonoBehaviour{
             backgroundImage.color = new Color(backgroundImage.color.r, backgroundImage.color.g, backgroundImage.color.b, 1);
         }
 
+    }
+
+    void UpdateLapText() {
+        lapText.text = string.Format("{0}/{1}",targetPlayer.currentLap,LevelManager.instance.lapCountToWin);
     }
 
 

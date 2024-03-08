@@ -39,6 +39,7 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
     public float currentSpeed=0;
 
     public bool isMovementEnabled { get; set; }
+    public int currentLap { get; set; }
 
     [Header("Camera Controls")]
 
@@ -66,6 +67,7 @@ public class PlayerNetwork : MonoBehaviour,IDamagable{
     Vector3 rotation;
 
     private void Awake(){
+        currentLap = 0;
         isMovementEnabled = false;
         rb = GetComponent<Rigidbody>();
         Input.gyro.enabled = true;

@@ -1953,6 +1953,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   timeToStartDissapearing: 1
   timeUntilFullDissapear: 1.75
+  lapText: {fileID: 5424884885145585788}
 --- !u!1 &7091169100386734633
 GameObject:
   m_ObjectHideFlags: 0
