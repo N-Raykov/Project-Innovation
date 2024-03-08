@@ -11,6 +11,9 @@ public class ShieldSkill : SkillBase{
     [SerializeField] Transform shieldParent;
 
     public override void UseSkill(){
+        if (!playerOwner.isMovementEnabled)
+            return;
+
         if (Time.time - lastUseTime > cooldown) {
 
             GameObject shield = Instantiate(shieldPrefab, shieldParent);

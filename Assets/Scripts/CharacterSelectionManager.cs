@@ -27,12 +27,12 @@ public class CharacterSelectionManager : MonoBehaviour{
             content.GetChild(i).GetComponent<DisplayCharacterStats>().OnClick += UpdateDisplay;
         }
     }
-    private void UpdateDisplay(Sprite pSprite, float pDamageValue, float pMaxSpeed, string pAcceleration, float pAttackCooldown,string pCharacterName,string pSkillName,string pSkillDescription,float pSkillDuration,float pSkillCooldown,GameObject pCharacterPrefab, bool pIsOn){
+    private void UpdateDisplay(Sprite pSprite,Sprite pDisplaySprite, float pDamageValue, float pMaxSpeed, string pAcceleration, float pAttackCooldown,string pCharacterName,string pSkillName,string pSkillDescription,float pSkillDuration,float pSkillCooldown,GameObject pCharacterPrefab, bool pIsOn){
 
         if (!pIsOn)
             return;
 
-        characterImage.sprite = pSprite;
+        characterImage.sprite = pDisplaySprite;
         damageText.text = pDamageValue.ToString();
         speedText.text = pMaxSpeed.ToString();
         accelerationText.text = pAcceleration;

@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour{
 
     [Header("Round Start Countdown")]
     [SerializeField] TextMeshProUGUI countdownText;
-    [SerializeField] int countdownDuration;
 
     [Header("Skill")]
     [SerializeField] RectTransform skillCooldownIndicator;
@@ -31,6 +30,9 @@ public class UIManager : MonoBehaviour{
     [SerializeField] float timeToStartDissapearing;
     [SerializeField] float timeUntilFullDissapear;
 
+    [Header("Laps")]
+    [SerializeField] TextMeshProUGUI lapText;
+
 
     private void Awake(){
 
@@ -42,7 +44,8 @@ public class UIManager : MonoBehaviour{
     }
 
     private void Start(){
-        StartCountdown(countdownDuration);
+
+        targetPlayer.OnRespawn += StartRespawnCountdown;
     }
 
     void UpdateSpeedIndicator(float pCurrentSpeed,float pMaxSpeed,float pTrueMaxSpeed) {
@@ -58,11 +61,17 @@ public class UIManager : MonoBehaviour{
         }
     }
 
+    void StartRespawnCountdown() {
+        StartCoroutine(CountdownCoroutine(LevelManager.instance.respawnDuration));
+    }
+
     public void StartCountdown(int duration) {
         StartCoroutine(CountdownCoroutine(duration));
     }
 
     IEnumerator CountdownCoroutine(int duration) {
+
+        targetPlayer.isMovementEnabled = false;
 
         while (duration >= 0) {
             countdownText.text = duration.ToString();
@@ -78,6 +87,7 @@ public class UIManager : MonoBehaviour{
     private void Update(){
         UpdateSkillCooldown();
         UpdateShootingOverheat();
+        UpdateLapText();
     }
 
     void UpdateSkillCooldown() {
@@ -100,6 +110,10 @@ public class UIManager : MonoBehaviour{
             backgroundImage.color = new Color(backgroundImage.color.r, backgroundImage.color.g, backgroundImage.color.b, 1);
         }
 
+    }
+
+    void UpdateLapText() {
+        lapText.text = string.Format("{0}/{1}",targetPlayer.currentLap,LevelManager.instance.lapCountToWin);
     }
 
 

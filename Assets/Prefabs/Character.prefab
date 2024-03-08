@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: bea491d25f7afad4db26e9dcb2de95e0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -138,7 +138,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!114 &4174159322687973799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,10 +154,18 @@ MonoBehaviour:
   toggle: {fileID: 3158103012351092188}
   image: {fileID: 3158103012351092189}
   sprite: {fileID: 21300000, guid: e96bb320f9abae34d97d5767cf805de8, type: 3}
-  damageValue: 5
-  maxSpeed: 10
-  acceleration: 4
-  attackCooldown: 2
+  damageValue: 1.375
+  maxSpeed: 21.5
+  acceleration: Low
+  attackCooldown: 0.225
+  characterName: Light Plane
+  skillName: Shield
+  skillDescription: Creates a shield around the player that protects from incoming
+    projectiles. Absorbs up to 10 damage and disapears after 10 seconds.
+  skillDuration: 7.5
+  SkillCooldown: 30
+  characterPrefab: {fileID: 4240236107479168617, guid: c804c13f4e06726498abebd6b44c2895,
+    type: 3}
 --- !u!1 &3158103013563951613
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +193,7 @@ RectTransform:
   m_GameObject: {fileID: 3158103013563951613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3158103012351092191}
@@ -217,14 +225,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.09080213, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0b99dd43bfc7ffd43a4f6ee91910df3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 366aadca8e6659642a7bcf17dd724015, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
