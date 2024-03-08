@@ -21,9 +21,12 @@ public class CharacterSpawner : MonoBehaviour{
             DontDestroyOnLoad(this.gameObject);
         }
         else {
-            selectedPlayerPrefab = instance.selectedPlayerPrefab;
-            Destroy(instance.gameObject);
-            instance = this;
+            if (instance != this) {
+                selectedPlayerPrefab = instance.selectedPlayerPrefab;
+                Destroy(instance.gameObject);
+                instance = this;
+            }
+
         }
     }
 
