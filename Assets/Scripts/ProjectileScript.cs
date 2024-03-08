@@ -7,6 +7,8 @@ public class ProjectileScript : MonoBehaviour {
     [SerializeField] float projectileSpeed;
     [SerializeField] float damage;
 
+    Transform targetTransform;
+
     public float damageMod { get; set; }
 
     Rigidbody rb;
@@ -20,6 +22,18 @@ public class ProjectileScript : MonoBehaviour {
         rb.AddForce(transform.forward*projectileSpeed, ForceMode.VelocityChange);
     }
 
+    public void LaunchProjectile(Transform pTargetTransform) {
+        targetTransform = pTargetTransform;
+        rb.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
+    }
+
+    private void Update(){
+        if (targetTransform != null) {
+            transform.forward = (targetTransform.position - transform.position).normalized;
+            rb.velocity = transform.forward * projectileSpeed;
+        }
+    }
+
     public void IgnoreColliders(List<Collider> pColliders) {
         Collider collider = GetComponent<Collider>();
 
@@ -31,6 +45,8 @@ public class ProjectileScript : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision){
         IDamagable damagable = collision.transform.root.GetComponent<IDamagable>();
+        Debug.Log(collision.gameObject.name + " " + damagable);
+
 
         if (damagable!=null) {
             damagable.TakeDamage(damage+damageMod);

@@ -968,7 +968,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 77.3
+  m_fontSize: 78.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1395,7 +1395,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 64
-  aimAssistRadius: 1
+  aimAssistRadius: 2
   cooldown: 0.225
   overheatAmountPerShot: 12.5
   overheatDecreasePerSec: 25
@@ -1767,6 +1767,7 @@ RectTransform:
   - {fileID: 5324821796414076238}
   - {fileID: 5407347261864673006}
   - {fileID: 6763847544218825988}
+  - {fileID: 8967285719217658925}
   m_Father: {fileID: 4240236107479168619}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2294,7 +2295,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.25
+  m_fontSize: 71.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2543,7 +2544,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 154.4
+  m_fontSize: 162.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

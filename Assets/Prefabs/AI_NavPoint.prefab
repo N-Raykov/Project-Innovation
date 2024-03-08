@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2072099703088108961}
   - component: {fileID: 3401792442649245145}
   - component: {fileID: 7879658411328593072}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AI_NavPoint
   m_TagString: NavPoint
   m_Icon: {fileID: 0}

@@ -28,6 +28,8 @@ public class BasicAttack : Attacker{
 
     private void ShootBulletServerRpc() {
         Vector3 target;
+        Transform targetTransform=null;
+
 
         RaycastHit hit;
 
@@ -37,6 +39,9 @@ public class BasicAttack : Attacker{
 
         if (Physics.SphereCast(playerCamera.transform.position, aimAssistRadius, playerCamera.transform.forward, out hit, fakeTargetRange,playerMask,QueryTriggerInteraction.Ignore)) {
             target = hit.point;
+            //target = hit.transform.position;
+            targetTransform = hit.transform;
+            Debug.Log("found targe");
         } else {
             target = playerCamera.ScreenToWorldPoint(new Vector3(0.5f, 0.5f, 0)) + playerCamera.transform.forward * fakeTargetRange;
         }
@@ -52,7 +57,15 @@ public class BasicAttack : Attacker{
         activeShootPoint %= shootpoints.Count;
 
         ProjectileScript projectile = gameObject.GetComponent<ProjectileScript>();
-        projectile.LaunchProjectile();
+
+        if (targetTransform != null)
+        {
+            projectile.LaunchProjectile(targetTransform);
+            Debug.Log("cock");
+        }
+        else
+            projectile.LaunchProjectile();
+
         projectile.IgnoreColliders(playerOwner.ownerColliders);
         projectile.damageMod = damageMod;
 

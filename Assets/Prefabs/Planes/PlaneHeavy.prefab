@@ -516,7 +516,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 77.3
+  m_fontSize: 78.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.25
+  m_fontSize: 71.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1457,7 +1457,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 64
-  aimAssistRadius: 1
+  aimAssistRadius: 2
   cooldown: 0.375
   overheatAmountPerShot: 13.5
   overheatDecreasePerSec: 25
@@ -2504,7 +2504,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 165.55
+  m_fontSize: 162.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

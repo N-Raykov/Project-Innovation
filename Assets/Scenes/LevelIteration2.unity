@@ -3636,7 +3636,7 @@ GameObject:
   - component: {fileID: 251160467}
   - component: {fileID: 251160466}
   - component: {fileID: 251160470}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrailBlazer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14037,7 +14037,7 @@ PrefabInstance:
     - target: {fileID: 1992442064179618333, guid: 834766a7fc5d2a8449036395bc6f6d60,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.67
+      value: 13.95
       objectReference: {fileID: 0}
     - target: {fileID: 1992442064179618333, guid: 834766a7fc5d2a8449036395bc6f6d60,
         type: 3}
@@ -15051,8 +15051,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1992442064179618333, guid: 834766a7fc5d2a8449036395bc6f6d60,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992442064179618333, guid: 834766a7fc5d2a8449036395bc6f6d60,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992442064179618333, guid: 834766a7fc5d2a8449036395bc6f6d60,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.58
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 1992442064179618333, guid: 834766a7fc5d2a8449036395bc6f6d60,
         type: 3}
@@ -15062,7 +15072,7 @@ PrefabInstance:
     - target: {fileID: 1992442064179618333, guid: 834766a7fc5d2a8449036395bc6f6d60,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.277771
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 1992442064179618333, guid: 834766a7fc5d2a8449036395bc6f6d60,
         type: 3}
@@ -18373,7 +18383,7 @@ GameObject:
   - component: {fileID: 1018883066}
   - component: {fileID: 1018883065}
   - component: {fileID: 1018883064}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrailBlazer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35809,12 +35819,12 @@ PrefabInstance:
     - target: {fileID: 7286515953570793031, guid: 6f5232d68966c514e9ddf070e3d11b22,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.61
+      value: 1.27
       objectReference: {fileID: 0}
     - target: {fileID: 7286515953570793031, guid: 6f5232d68966c514e9ddf070e3d11b22,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 34
+      value: -28.33
       objectReference: {fileID: 0}
     - target: {fileID: 7286515953570793031, guid: 6f5232d68966c514e9ddf070e3d11b22,
         type: 3}
