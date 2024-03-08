@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class LevelManager : MonoBehaviour{
 
     public static LevelManager instance { get; private set; }
@@ -8,6 +10,8 @@ public class LevelManager : MonoBehaviour{
     [SerializeField] int countdownDuration;
     [SerializeField] int _respawnDuration;
     [SerializeField] SplineNetwork splineNetwork;
+    [SerializeField] string winScene;
+    [SerializeField] string loseScene;
 
 
     [Header("Laps")]
@@ -38,7 +42,6 @@ public class LevelManager : MonoBehaviour{
 
         player=FindObjectOfType<PlayerNetwork>();
         ai = FindObjectsByType<AI_Test>(FindObjectsSortMode.None);
-
 
         UIManager.instance.StartCountdown(countdownDuration);
         StartCoroutine(ManagerCountdownCoroutine(countdownDuration));
@@ -80,6 +83,22 @@ public class LevelManager : MonoBehaviour{
         pForward = closestSpline.GetDirection(progress).normalized;
         return minDistance;
 
+    }
+
+    private void Update(){
+        if (player.currentLap == lapCountToWin){
+            LoadScene(winScene);
+        }
+
+        foreach (AI_Test a in ai) {
+            if (a.currentLap == lapCountToWin)
+                LoadScene(loseScene);
+            return;
+        }
+    }
+
+    void LoadScene(string pScene) {
+        SceneManager.LoadScene(pScene);
     }
 
 }

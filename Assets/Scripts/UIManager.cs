@@ -36,8 +36,10 @@ public class UIManager : MonoBehaviour{
 
     private void Awake(){
 
-        if (instance != null)
-            Destroy(instance);
+        if (instance != null){
+            Destroy(instance.gameObject);
+        }
+
 
         instance = this;
         targetPlayer.OnSpeedChange += UpdateSpeedIndicator;
@@ -116,5 +118,8 @@ public class UIManager : MonoBehaviour{
         lapText.text = string.Format("{0}/{1}",targetPlayer.currentLap,LevelManager.instance.lapCountToWin);
     }
 
+    private void OnDestroy(){
+        StopAllCoroutines();
+    }
 
 }

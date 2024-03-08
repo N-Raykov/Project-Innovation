@@ -54,9 +54,11 @@ public class AI_Test : MonoBehaviour, IDamagable
     Vector3 rotation;
 
     public bool isMovementEnabled { get; set; }
+    public int currentLap { get; set; }
 
     private void Awake()
     {
+        currentLap = 0;
         rb = GetComponent<Rigidbody>();
         isMovementEnabled = false;
     }
