@@ -28,22 +28,30 @@ public class CharacterSpawner : MonoBehaviour{
             }
 
         }
-    }
 
-    private void Start(){
         string currentScene = SceneManager.GetActiveScene().name;
 
-        foreach (string s in scenesToSpawnIn) {
-            if (s == currentScene) {
-                Instantiate(selectedPlayerPrefab,transform.position,transform.rotation);
+        foreach (string s in scenesToSpawnIn)
+        {
+            if (s == currentScene)
+            {
+                Instantiate(selectedPlayerPrefab, transform.position, transform.rotation);
+                Debug.Log("player created");
                 return;
             }
         }
+
+    }
+
+    private void Start(){
+
         
     }
 
     public void SetSelectedCharacter(GameObject pPrefab) {
         selectedPlayerPrefab = pPrefab;
+        Debug.Log(selectedPlayerPrefab);
     }
 
+    
 }
